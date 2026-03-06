@@ -17,38 +17,50 @@
         /* Filter Button Styling */
         .filter-container { margin: 15px 0; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
         .filter-btn {
-            font-size: 0.75rem; font-weight: bold; border-radius: 20px; padding: 4px 14px;
+            font-size: 0.75rem; font-weight: bold; border-radius: 20px; padding: 6px 16px;
             border: 2px solid #0084DF; background: #fff; color: #005995; transition: 0.2s;
-            cursor: pointer; display: flex; align-items: center; gap: 6px;
+            cursor: pointer; display: flex; align-items: center;
         }
-        .filter-btn.active { background: #0084DF; color: #fff; }
-        .filter-btn.inactive { opacity: 0.4; background: #e9ecef; color: #6c757d; border-color: #dee2e6; }
+        .filter-btn.active { background: #0084DF; color: #fff; box-shadow: 0 2px 8px rgba(0,132,223,0.3); }
+        .filter-btn.inactive { opacity: 0.5; background: #fff; color: #6c757d; border-color: #dee2e6; }
         
-        .salary-toggle { background-color: #40E0D0; color: #000; font-size: 0.7rem; font-weight: bold; border: 1px solid #005995; padding: 2px 8px; border-radius: 4px; cursor: pointer; }
-        .btn-apply { background-color: #0084DF; color: #fff; font-weight: bold; border: none; padding: 5px 15px; }
-        .btn-apply:hover { background-color: #005995; color: #fff; }
+        .clear-btn { font-size: 0.7rem; color: #ff4d4d; cursor: pointer; text-decoration: underline; margin-left: 10px; display: none; }
 
-        /* Row Selection Styling */
-        tr.shown { background-color: #d4f7f3 !important; border-left: 6px solid #40E0D0; }
-        .duties-box { padding: 25px; background: #eefaff; border-bottom: 4px solid #40E0D0; color: #000; box-shadow: inset 0 4px 10px rgba(0,0,0,0.08); }
-        .duties-header { color: #005995; font-weight: bold; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 10px; border-bottom: 2px solid #40E0D0; display: inline-block; }
-        .cursor-pointer tbody tr { cursor: pointer; transition: background 0.1s; }
+        .salary-toggle { background-color: #40E0D0; color: #000; font-size: 0.7rem; font-weight: bold; border: 1px solid #005995; padding: 2px 8px; border-radius: 4px; cursor: pointer; }
+        .btn-apply { background-color: #0084DF; color: #fff; font-weight: bold; border: none; padding: 5px 15px; border-radius: 6px; }
         
-        /* Search Bar Customization */
-        .dataTables_filter input { border: 2px solid #0084DF; border-radius: 10px; padding: 4px 10px; font-family: 'Inter'; width: 300px !important; }
+        /* Table Polish */
+        .card { border-radius: 12px; border: none; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        tr.shown { background-color: #eefaff !important; }
+        .duties-box { padding: 25px; background: #fff; border-left: 10px solid #40E0D0; color: #333; }
+        
+        /* Search Bar Sync UI */
+        .dataTables_filter input { 
+            border: 2px solid #0084DF !important; 
+            border-radius: 8px !important; 
+            padding: 6px 12px !important;
+            width: 350px !important;
+            background-color: #fff !important;
+            outline: none;
+        }
     </style>
 </head>
 <body>
 <div class="container py-5">
     <div class="text-center mb-5">
         <h1 class="display-5 fw-bold" style="color: #005995;">Civil Service Listings</h1>
-        <div id="status" class="small text-muted">Initializing Bot Scan...</div>
+        <div id="status" class="small text-muted">Fetching latest jobs...</div>
     </div>
 
-    <h2>DLNR Civil Service Listings</h2>
+    <div class="d-flex align-items-center justify-content-between">
+        <h2>Departmental Divisions</h2>
+        <span id="clearFilters" class="clear-btn">Clear All Filters</span>
+    </div>
+    
     <div id="civilFilters" class="filter-container"></div>
-    <div class="card p-3 mb-5 border-0 shadow-sm">
-        <table id="civilTable" class="table table-hover w-100 cursor-pointer">
+
+    <div class="card p-3 mb-5">
+        <table id="civilTable" class="table table-hover w-100">
             <thead>
                 <tr>
                     <th>Title</th><th>ID</th><th>Division</th><th>Location</th>
@@ -74,23 +86,22 @@ const salRender = d => {
 };
 
 function formatExpansion(d) {
-    return `<div class="duties-box"><div class="duties-header">Position Summary & Duties</div><div class="mt-2" style="line-height: 1.6;">${d.duties}</div></div>`;
+    return `<div class="duties-box"><strong>Position Summary:</strong><div class="mt-2 small">${d.duties}</div></div>`;
 }
 
 fetch('jobs.json').then(r => r.json()).then(data => {
     document.getElementById('status').innerText = `Last Updated: ${new Date(data.generated_at_utc).toLocaleString()}`;
 
-    // Setup Filters
+    // Create unique filter buttons
     const divisions = [...new Set(data.civil_service.map(j => j.division))].sort();
-    if (!divisions.includes("Aquatic Resources")) divisions.unshift("Aquatic Resources");
-
     divisions.forEach(div => {
         $('#civilFilters').append(`<button class="filter-btn inactive" data-val="${div}">${div}</button>`);
     });
 
     const cTable = $('#civilTable').DataTable({
         data: data.civil_service,
-        pageLength: 10,
+        pageLength: 25,
+        dom: '<"d-flex justify-content-between align-items-center mb-3"lf>rtip',
         columns: [
             { data: 'title', className: 'fw-bold' },
             { data: 'job_number' },
@@ -102,7 +113,7 @@ fetch('jobs.json').then(r => r.json()).then(data => {
         ]
     });
 
-    // --- NEW SYNC LOGIC ---
+    // Update the search bar whenever a button is clicked
     $(document).on('click', '.filter-btn', function() {
         $(this).toggleClass('active inactive');
         
@@ -111,40 +122,33 @@ fetch('jobs.json').then(r => r.json()).then(data => {
             activeFilters.push($(this).data('val'));
         });
 
-        // 1. Create the search string for the UI
-        const displayString = activeFilters.join(' | ');
-        
-        // 2. Push it into the actual DataTable search box
-        $('input[type="search"]').val(displayString);
+        const searchString = activeFilters.join(' | ');
 
-        // 3. Perform the actual filter (Regex search on Division column)
-        const regexSearch = activeFilters.map(f => `^${f.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`).join('|');
-        cTable.column(2).search(activeFilters.length ? regexSearch : '', true, false).draw();
+        // Force the text into the DataTables search box
+        cTable.search(searchString).draw();
+        $('.dataTables_filter input').val(searchString);
+
+        // Show/Hide Clear Button
+        activeFilters.length > 0 ? $('#clearFilters').fadeIn() : $('#clearFilters').fadeOut();
     });
 
-    // Sync search box back to buttons (if user types manually)
-    $('input[type="search"]').on('keyup change', function() {
-        const val = $(this).val();
-        if (!val) {
-            $('.filter-btn').removeClass('active').addClass('inactive');
-            cTable.column(2).search('').draw();
-        }
+    // Clear All Handler
+    $('#clearFilters').on('click', function() {
+        $('.filter-btn').removeClass('active').addClass('inactive');
+        cTable.search('').draw();
+        $('.dataTables_filter input').val('');
+        $(this).fadeOut();
     });
 
-    // Accordion Logic
-    $('.table tbody').on('click', 'td:not(:last-child)', function () {
+    // Handle row expansion
+    $('#civilTable tbody').on('click', 'tr', function (e) {
+        if ($(e.target).closest('a, button').length) return;
         const tr = $(this).closest('tr');
         const row = cTable.row(tr);
         if (row.child.isShown()) {
             row.child.hide();
             tr.removeClass('shown');
         } else {
-            cTable.rows().every(function() {
-                if(this.child.isShown()){
-                    this.child.hide();
-                    $(this.node()).removeClass('shown');
-                }
-            });
             row.child(formatExpansion(row.data())).show();
             tr.addClass('shown');
         }
