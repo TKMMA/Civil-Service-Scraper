@@ -22,7 +22,7 @@
             cursor: pointer; display: flex; align-items: center; gap: 6px;
         }
         .filter-btn.active { background: #0084DF; color: #fff; }
-        .filter-btn.inactive { opacity: 0.3; background: #e9ecef; color: #6c757d; border-color: #dee2e6; }
+        .filter-btn.inactive { opacity: 0.4; background: #e9ecef; color: #6c757d; border-color: #dee2e6; }
         
         .salary-toggle { background-color: #40E0D0; color: #000; font-size: 0.7rem; font-weight: bold; border: 1px solid #005995; padding: 2px 8px; border-radius: 4px; cursor: pointer; }
         .btn-apply { background-color: #0084DF; color: #fff; font-weight: bold; border: none; padding: 5px 15px; }
@@ -35,7 +35,7 @@
         .cursor-pointer tbody tr { cursor: pointer; transition: background 0.1s; }
         
         /* Search Bar Customization */
-        .dataTables_filter input { border: 2px solid #0084DF; border-radius: 10px; padding: 4px 10px; font-family: 'Inter'; }
+        .dataTables_filter input { border: 2px solid #0084DF; border-radius: 10px; padding: 4px 10px; font-family: 'Inter'; width: 300px !important; }
     </style>
 </head>
 <body>
@@ -102,7 +102,7 @@ fetch('jobs.json').then(r => r.json()).then(data => {
         ]
     });
 
-    // Filter Handler with Search Bar Sync
+    // --- NEW SYNC LOGIC ---
     $(document).on('click', '.filter-btn', function() {
         $(this).toggleClass('active inactive');
         
@@ -111,13 +111,24 @@ fetch('jobs.json').then(r => r.json()).then(data => {
             activeFilters.push($(this).data('val'));
         });
 
-        // Update Search Bar text
-        const searchString = activeFilters.join(' | ');
-        $('.dataTables_filter input').val(searchString);
+        // 1. Create the search string for the UI
+        const displayString = activeFilters.join(' | ');
+        
+        // 2. Push it into the actual DataTable search box
+        $('input[type="search"]').val(displayString);
 
-        // Apply Regex Search to Division Column (index 2)
-        const regex = activeFilters.map(f => `^${f.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`).join('|');
-        cTable.column(2).search(activeFilters.length ? regex : '', true, false).draw();
+        // 3. Perform the actual filter (Regex search on Division column)
+        const regexSearch = activeFilters.map(f => `^${f.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`).join('|');
+        cTable.column(2).search(activeFilters.length ? regexSearch : '', true, false).draw();
+    });
+
+    // Sync search box back to buttons (if user types manually)
+    $('input[type="search"]').on('keyup change', function() {
+        const val = $(this).val();
+        if (!val) {
+            $('.filter-btn').removeClass('active').addClass('inactive');
+            cTable.column(2).search('').draw();
+        }
     });
 
     // Accordion Logic
