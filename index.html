@@ -14,52 +14,39 @@
         h2 { color: #005995; font-weight: 700; border-left: 6px solid #40E0D0; padding-left: 15px; margin-top: 40px; }
         .table thead { background-color: #005995; color: white; }
         
-        /* Filter Button Styling */
         .filter-container { margin: 15px 0; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
         .filter-btn {
             font-size: 0.75rem; font-weight: bold; border-radius: 20px; padding: 6px 16px;
             border: 2px solid #0084DF; background: #fff; color: #005995; transition: 0.2s;
-            cursor: pointer; display: flex; align-items: center;
+            cursor: pointer; display: flex; align-items: center; gap: 8px;
         }
-        .filter-btn.active { background: #0084DF; color: #fff; box-shadow: 0 2px 8px rgba(0,132,223,0.3); }
+        .filter-btn.active { background: #0084DF; color: #fff; border-color: #0084DF; }
         .filter-btn.inactive { opacity: 0.5; background: #fff; color: #6c757d; border-color: #dee2e6; }
+        .filter-btn .close-x { display: none; font-weight: bold; margin-left: 4px; }
+        .filter-btn.active .close-x { display: inline; }
         
-        .clear-btn { font-size: 0.7rem; color: #ff4d4d; cursor: pointer; text-decoration: underline; margin-left: 10px; display: none; }
-
+        .all-btn { background-color: #005995; color: white; border: none; border-radius: 20px; padding: 6px 20px; font-weight: bold; font-size: 0.75rem; cursor: pointer; }
         .salary-toggle { background-color: #40E0D0; color: #000; font-size: 0.7rem; font-weight: bold; border: 1px solid #005995; padding: 2px 8px; border-radius: 4px; cursor: pointer; }
         .btn-apply { background-color: #0084DF; color: #fff; font-weight: bold; border: none; padding: 5px 15px; border-radius: 6px; }
         
-        /* Table Polish */
-        .card { border-radius: 12px; border: none; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
-        tr.shown { background-color: #eefaff !important; }
-        .duties-box { padding: 25px; background: #fff; border-left: 10px solid #40E0D0; color: #333; }
-        
-        /* Search Bar Sync UI */
-        .dataTables_filter input { 
-            border: 2px solid #0084DF !important; 
-            border-radius: 8px !important; 
-            padding: 6px 12px !important;
-            width: 350px !important;
-            background-color: #fff !important;
-            outline: none;
-        }
+        .dataTables_filter input { border: 2px solid #0084DF !important; border-radius: 8px !important; padding: 6px 12px !important; width: 350px !important; }
+        .duties-box { padding: 20px; background: #f0f9ff; border-left: 5px solid #40E0D0; font-size: 0.85rem; }
     </style>
 </head>
 <body>
 <div class="container py-5">
     <div class="text-center mb-5">
         <h1 class="display-5 fw-bold" style="color: #005995;">Civil Service Listings</h1>
-        <div id="status" class="small text-muted">Fetching latest jobs...</div>
+        <div id="status" class="small text-muted">Loading job data...</div>
     </div>
 
-    <div class="d-flex align-items-center justify-content-between">
-        <h2>Departmental Divisions</h2>
-        <span id="clearFilters" class="clear-btn">Clear All Filters</span>
+    <h2>Departmental Divisions</h2>
+    <div id="civilFilters" class="filter-container">
+        <button class="all-btn" id="clearFilters">All</button>
+        <button class="filter-btn active" data-val="Division of Aquatic Resources">Division of Aquatic Resources <span class="close-x">×</span></button>
     </div>
-    
-    <div id="civilFilters" class="filter-container"></div>
 
-    <div class="card p-3 mb-5">
+    <div class="card p-3 mb-5 border-0 shadow-sm">
         <table id="civilTable" class="table table-hover w-100">
             <thead>
                 <tr>
@@ -86,16 +73,18 @@ const salRender = d => {
 };
 
 function formatExpansion(d) {
-    return `<div class="duties-box"><strong>Position Summary:</strong><div class="mt-2 small">${d.duties}</div></div>`;
+    return `<div class="duties-box"><strong>Position Summary:</strong><div class="mt-2">${d.duties}</div></div>`;
 }
 
 fetch('jobs.json').then(r => r.json()).then(data => {
     document.getElementById('status').innerText = `Last Updated: ${new Date(data.generated_at_utc).toLocaleString()}`;
 
-    // Create unique filter buttons
+    // Add other divisions dynamically (excluding the one we hardcoded)
     const divisions = [...new Set(data.civil_service.map(j => j.division))].sort();
     divisions.forEach(div => {
-        $('#civilFilters').append(`<button class="filter-btn inactive" data-val="${div}">${div}</button>`);
+        if(div !== "Division of Aquatic Resources") {
+            $('#civilFilters').append(`<button class="filter-btn inactive" data-val="${div}">${div} <span class="close-x">×</span></button>`);
+        }
     });
 
     const cTable = $('#civilTable').DataTable({
@@ -113,7 +102,12 @@ fetch('jobs.json').then(r => r.json()).then(data => {
         ]
     });
 
-    // Update the search bar whenever a button is clicked
+    // --- APPLY DEFAULT FILTER ON LOAD ---
+    const defaultVal = "Division of Aquatic Resources";
+    cTable.search(defaultVal).draw();
+    $('.dataTables_filter input').val(defaultVal);
+
+    // Filter Logic
     $(document).on('click', '.filter-btn', function() {
         $(this).toggleClass('active inactive');
         
@@ -122,42 +116,35 @@ fetch('jobs.json').then(r => r.json()).then(data => {
             activeFilters.push($(this).data('val'));
         });
 
+        // Use "|" for OR logic in search
         const searchString = activeFilters.join(' | ');
-
-        // Force the text into the DataTables search box
-        cTable.search(searchString).draw();
+        cTable.search(searchString, true, false).draw();
         $('.dataTables_filter input').val(searchString);
-
-        // Show/Hide Clear Button
-        activeFilters.length > 0 ? $('#clearFilters').fadeIn() : $('#clearFilters').fadeOut();
     });
 
-    // Clear All Handler
+    // "All" Button clears buttons and search bar
     $('#clearFilters').on('click', function() {
         $('.filter-btn').removeClass('active').addClass('inactive');
         cTable.search('').draw();
         $('.dataTables_filter input').val('');
-        $(this).fadeOut();
     });
 
-    // Handle row expansion
+    // Row expansion
     $('#civilTable tbody').on('click', 'tr', function (e) {
         if ($(e.target).closest('a, button').length) return;
         const tr = $(this).closest('tr');
         const row = cTable.row(tr);
         if (row.child.isShown()) {
             row.child.hide();
-            tr.removeClass('shown');
         } else {
             row.child(formatExpansion(row.data())).show();
-            tr.addClass('shown');
         }
     });
 
     $('.toggle-btn').on('click', function(e) {
         e.stopPropagation();
         viewMonthly = !viewMonthly;
-        $('.toggle-btn').text(viewMonthly ? 'Show /yr' : 'Show /mo');
+        $(this).text(viewMonthly ? 'Show /yr' : 'Show /mo');
         cTable.rows().invalidate().draw();
     });
 });
