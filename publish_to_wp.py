@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
-"""Publish jobs.json to the DAR WordPress Media Library.
+"""Publish jobs.json into a hidden WordPress page on the DAR site.
 
-Uploads jobs.json as a single text file (dar-jobs.txt) via the WordPress REST
-API, removes superseded copies, then verifies the result is readable by an
-anonymous visitor exactly the way the careers page reads it.
+The Media Library on dar.hawaii.gov only accepts images, PDFs and video, so a
+data file cannot be uploaded. WordPress will happily store text as a *page*
+though, and pages are readable by anonymous visitors through the REST API.
+
+So the job data is base64 encoded and parked inside an HTML comment on a page
+that is not linked from anywhere. A human who finds the URL sees a blank page.
+The careers page widget reads it through the REST API and decodes it.
 
 Refuses to publish data that looks broken, so a bad upstream fetch can never
 blank the listings on the live page.
@@ -18,6 +22,7 @@ Environment:
 import base64
 import json
 import os
+import re
 import sys
 
 import requests
@@ -27,16 +32,16 @@ WP_USER = os.environ.get("WP_USER", "")
 WP_APP_PASS = os.environ.get("WP_APP_PASS", "").replace(" ", "")
 FORCE = os.environ.get("FORCE", "") == "1"
 
-MEDIA_SLUG = "dar-jobs"       # the careers page searches for this
-UPLOAD_NAMES = ["dar-jobs.txt", "dar-jobs.csv", "dar-jobs.json"]
+PAGE_SLUG = "dar-jobs-data"
+PAGE_TITLE = "DAR job listings data"
+MARKER = "DARJOBS1"
 DATA_FILE = "jobs.json"
 PREV_FILE = "jobs.prev.json"
-MEDIA_ENDPOINT = f"{WP_BASE}/wp-json/wp/v2/media"
+PAGES_ENDPOINT = f"{WP_BASE}/wp-json/wp/v2/pages"
 TIMEOUT = 45
 
 
 def die(msg):
-    # ::error:: makes this surface as an annotation in the Actions run
     print(f"::error::{msg}")
     sys.exit(1)
 
@@ -96,115 +101,104 @@ def load_and_check():
     return new_count
 
 
-def upload(session):
+def build_content():
+    """jobs.json, base64 encoded, wrapped in an invisible HTML comment.
+
+    Base64 survives WordPress's content filters untouched. Raw JSON would not:
+    wptexturize turns straight quotes into curly ones and would corrupt it.
+    """
     with open(DATA_FILE, "rb") as fh:
         payload = fh.read()
-
-    attempts = []
-    for name in UPLOAD_NAMES:
-        if name.endswith(".csv"):
-            ctype = "text/csv"
-        elif name.endswith(".json"):
-            ctype = "application/json"
-        else:
-            ctype = "text/plain"
-
-        headers = dict(auth())
-        headers.update({
-            "Content-Type": ctype,
-            "Content-Disposition": f'attachment; filename="{name}"',
-            "Accept": "application/json",
-        })
-        resp = session.post(MEDIA_ENDPOINT, headers=headers, data=payload,
-                            timeout=TIMEOUT)
-
-        if resp.status_code == 401:
-            die("WordPress rejected the credentials (401). The Application "
-                "Password may have been revoked, or the username is wrong.")
-
-        if resp.status_code in (200, 201):
-            item = resp.json()
-            info(f"Uploaded {name} as media id={item['id']} "
-                 f"slug={item.get('slug')} url={item.get('source_url')}")
-            return item["id"], item.get("source_url", "")
-
-        attempts.append(f"{name} -> HTTP {resp.status_code} {resp.text[:160]}")
-        info(f"::warning::{name} refused, trying the next file type.")
-
-    die("Every file type was refused by WordPress. Attempts:\n"
-        + "\n".join(attempts))
+    encoded = base64.b64encode(payload).decode("ascii")
+    return (
+        "<!-- Machine generated, do not edit. Refreshed daily by the "
+        "Civil-Service-Scraper GitHub Action.\n"
+        f"{MARKER} {encoded} {MARKER} -->"
+    )
 
 
-def cleanup(session, keep_id):
-    """Delete older dar-jobs uploads so the library holds exactly one."""
-    params = {"search": MEDIA_SLUG, "per_page": 100, "orderby": "date",
-              "order": "desc", "_fields": "id,slug"}
-    resp = session.get(MEDIA_ENDPOINT, headers=auth(), params=params, timeout=TIMEOUT)
+def find_page(session):
+    resp = session.get(PAGES_ENDPOINT, headers=auth(),
+                       params={"slug": PAGE_SLUG, "status": "publish,draft,private",
+                               "per_page": 1, "_fields": "id,slug,status"},
+                       timeout=TIMEOUT)
+    if resp.status_code == 401:
+        die("WordPress rejected the credentials (401). The Application "
+            "Password may have been revoked, or the username is wrong.")
     if not resp.ok:
-        info(f"::warning::Could not list old uploads to clean up "
-             f"(HTTP {resp.status_code}). Nothing deleted.")
-        return
+        die(f"Could not look up the data page: HTTP {resp.status_code} "
+            f"{resp.text[:300]}")
+    items = resp.json()
+    return items[0]["id"] if items else None
 
-    removed = 0
-    for item in resp.json():
-        if item["id"] == keep_id:
-            continue
-        # only ever touch things whose slug really is ours
-        if not str(item.get("slug", "")).startswith(MEDIA_SLUG):
-            continue
-        d = session.delete(f"{MEDIA_ENDPOINT}/{item['id']}", headers=auth(),
-                           params={"force": "true"}, timeout=TIMEOUT)
-        if d.ok:
-            removed += 1
-        else:
-            info(f"::warning::Could not delete media id={item['id']} "
-                 f"(HTTP {d.status_code}).")
-    info(f"Cleaned up {removed} superseded upload(s).")
+
+def write_page(session, page_id, content):
+    body = {"title": PAGE_TITLE, "content": content, "status": "publish"}
+    if page_id:
+        url = f"{PAGES_ENDPOINT}/{page_id}"
+    else:
+        url = PAGES_ENDPOINT
+        body["slug"] = PAGE_SLUG
+
+    resp = session.post(url, headers={**auth(), "Content-Type": "application/json"},
+                        data=json.dumps(body), timeout=TIMEOUT)
+
+    if resp.status_code == 401:
+        die("WordPress rejected the credentials (401).")
+    if resp.status_code == 403:
+        die("WordPress accepted the login but refused to write the page (403). "
+            "The account may lack publish_pages, or a security plugin is "
+            "blocking REST writes.")
+    if resp.status_code not in (200, 201):
+        die(f"Writing the page failed with HTTP {resp.status_code}: "
+            f"{resp.text[:400]}")
+
+    item = resp.json()
+    info(f"{'Updated' if page_id else 'Created'} page id={item['id']} "
+         f"slug={item.get('slug')} link={item.get('link')}")
+    return item["id"]
 
 
 def verify_public(expected_count):
     """Read it back the way an anonymous visitor does. No credentials."""
-    lookup = requests.get(
-        MEDIA_ENDPOINT,
-        params={"search": MEDIA_SLUG, "per_page": 1, "orderby": "date",
-                "order": "desc", "_fields": "source_url"},
-        timeout=TIMEOUT,
-    )
-    if not lookup.ok:
-        die(f"Anonymous media lookup failed with HTTP {lookup.status_code}. "
+    resp = requests.get(PAGES_ENDPOINT,
+                        params={"slug": PAGE_SLUG, "per_page": 1,
+                                "_fields": "content,link"},
+                        timeout=TIMEOUT)
+    if not resp.ok:
+        die(f"Anonymous page lookup failed with HTTP {resp.status_code}. "
             "The careers page will not be able to find the data.")
 
-    items = lookup.json()
-    if not items or not items[0].get("source_url"):
-        die("Anonymous media lookup returned nothing. The careers page will "
-            "fall back to its error state.")
+    items = resp.json()
+    if not items:
+        die("Anonymous lookup returned nothing. The page may not be published.")
 
-    source_url = items[0]["source_url"]
-    fetched = requests.get(source_url, timeout=TIMEOUT,
-                           headers={"Cache-Control": "no-cache"})
-    if not fetched.ok:
-        die(f"Anonymous fetch of {source_url} failed with "
-            f"HTTP {fetched.status_code}.")
+    rendered = (items[0].get("content") or {}).get("rendered") or ""
+    match = re.search(rf"{MARKER}\s+([A-Za-z0-9+/=]+)\s+{MARKER}", rendered)
+    if not match:
+        die("Could not find the data marker in the published page. Something "
+            "on the site is stripping HTML comments from page content.")
 
     try:
-        data = fetched.json()
+        data = json.loads(base64.b64decode(match.group(1)).decode("utf-8"))
     except Exception as exc:
-        die(f"Published file did not parse as JSON: {exc}")
+        die(f"Published payload did not decode: {exc}")
 
     got = len(data.get("civil_service") or [])
     if got != expected_count:
-        die(f"Published file has {got} openings but we uploaded "
-            f"{expected_count}. The lookup may be resolving an older file.")
+        die(f"Published page has {got} openings but we wrote {expected_count}.")
 
-    info(f"Verified anonymously: {got} openings at {source_url}")
+    info(f"Verified anonymously: {got} openings at {items[0].get('link')}")
     info(f"Data timestamp: {data.get('generated_at_utc')}")
 
 
 def main():
     expected = load_and_check()
+    content = build_content()
+    info(f"Payload is {len(content)} characters of base64 in an HTML comment.")
     with requests.Session() as session:
-        media_id, _ = upload(session)
-        cleanup(session, media_id)
+        page_id = find_page(session)
+        write_page(session, page_id, content)
     verify_public(expected)
     info("Publish complete.")
 
