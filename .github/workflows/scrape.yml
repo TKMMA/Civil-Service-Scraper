@@ -2,32 +2,52 @@ name: Daily Scraper
 
 on:
   schedule:
-    - cron: '0 18 * * *' # Runs daily at 8:00 AM HST (18:00 UTC)
-  workflow_dispatch:      # THIS ADDS THE "RUN WORKFLOW" BUTTON BACK
+    - cron: '0 18 * * *'   # 8:00 AM HST
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Set to 1 to override the plausibility guard'
+        required: false
+        default: '0'
 
 jobs:
   scrape:
     runs-on: ubuntu-latest
     permissions:
-      contents: write     # Needed to save jobs.json
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: '3.11'
 
       - name: Install dependencies
-        run: |
-          pip install requests
+        run: pip install requests
 
-      - name: Run Scraper
+      # Keep the committed copy so publish_to_wp.py can sanity check the
+      # new count against the previous one.
+      - name: Snapshot previous data
+        run: cp jobs.json jobs.prev.json || true
+
+      - name: Read the NeoGov feed
         run: python scraper.py
 
-      - name: Commit and Push
+      # Publishes BEFORE committing, so a failed publish leaves the old
+      # jobs.json in the repo and the next run still has a baseline.
+      - name: Publish to WordPress
+        env:
+          WP_BASE: https://dar.hawaii.gov
+          WP_USER: ${{ secrets.WP_USER }}
+          WP_APP_PASS: ${{ secrets.WP_APP_PASS }}
+          FORCE: ${{ github.event.inputs.force }}
+        run: python publish_to_wp.py
+
+      - name: Commit refreshed data
         run: |
+          rm -f jobs.prev.json
           git config --global user.name "GitHub Actions"
           git config --global user.email "actions@github.com"
           git add jobs.json
