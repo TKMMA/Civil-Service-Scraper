@@ -28,7 +28,7 @@ WP_APP_PASS = os.environ.get("WP_APP_PASS", "").replace(" ", "")
 FORCE = os.environ.get("FORCE", "") == "1"
 
 MEDIA_SLUG = "dar-jobs"       # the careers page searches for this
-UPLOAD_NAME = "dar-jobs.txt"  # .txt so stock WordPress accepts the upload
+UPLOAD_NAMES = ["dar-jobs.txt", "dar-jobs.csv", "dar-jobs.json"]
 DATA_FILE = "jobs.json"
 PREV_FILE = "jobs.prev.json"
 MEDIA_ENDPOINT = f"{WP_BASE}/wp-json/wp/v2/media"
@@ -100,28 +100,39 @@ def upload(session):
     with open(DATA_FILE, "rb") as fh:
         payload = fh.read()
 
-    headers = dict(auth())
-    headers.update({
-        "Content-Type": "text/plain",
-        "Content-Disposition": f'attachment; filename="{UPLOAD_NAME}"',
-        "Accept": "application/json",
-    })
-    resp = session.post(MEDIA_ENDPOINT, headers=headers, data=payload, timeout=TIMEOUT)
+    attempts = []
+    for name in UPLOAD_NAMES:
+        if name.endswith(".csv"):
+            ctype = "text/csv"
+        elif name.endswith(".json"):
+            ctype = "application/json"
+        else:
+            ctype = "text/plain"
 
-    if resp.status_code == 401:
-        die("WordPress rejected the credentials (401). The Application "
-            "Password may have been revoked, or the username is wrong.")
-    if resp.status_code == 403:
-        die("WordPress accepted the login but refused the upload (403). The "
-            "account may lack upload_files, or a security plugin is blocking "
-            "REST uploads.")
-    if resp.status_code not in (200, 201):
-        die(f"Upload failed with HTTP {resp.status_code}: {resp.text[:400]}")
+        headers = dict(auth())
+        headers.update({
+            "Content-Type": ctype,
+            "Content-Disposition": f'attachment; filename="{name}"',
+            "Accept": "application/json",
+        })
+        resp = session.post(MEDIA_ENDPOINT, headers=headers, data=payload,
+                            timeout=TIMEOUT)
 
-    item = resp.json()
-    info(f"Uploaded media id={item['id']} slug={item.get('slug')} "
-         f"url={item.get('source_url')}")
-    return item["id"], item.get("source_url", "")
+        if resp.status_code == 401:
+            die("WordPress rejected the credentials (401). The Application "
+                "Password may have been revoked, or the username is wrong.")
+
+        if resp.status_code in (200, 201):
+            item = resp.json()
+            info(f"Uploaded {name} as media id={item['id']} "
+                 f"slug={item.get('slug')} url={item.get('source_url')}")
+            return item["id"], item.get("source_url", "")
+
+        attempts.append(f"{name} -> HTTP {resp.status_code} {resp.text[:160]}")
+        info(f"::warning::{name} refused, trying the next file type.")
+
+    die("Every file type was refused by WordPress. Attempts:\n"
+        + "\n".join(attempts))
 
 
 def cleanup(session, keep_id):
