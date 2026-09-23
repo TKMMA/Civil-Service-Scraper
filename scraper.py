@@ -165,23 +165,73 @@ def split_title(raw_title):
     return parts[0], re.sub(r"\s+-\s+", ", ", parts[1].strip())
 
 
-def parse_salary(text):
-    if not text:
+# --- SALARY ---
+# The feed has salary in two places. Some listings fill minimumSalary and
+# maximumSalary with numbers; most say "See Position Description" there and
+# put the pay in the description text instead, e.g.
+# "$5,107 to $6,221 per month (SR-20, Step D to I)". salaryInterval says
+# "Month" even when the text says "per hour", so the text's own unit wins.
+PER_YEAR = {"month": 12, "hour": 2080, "year": 1}
+# Sane yearly bounds, so a stray dollar figure (a fee, a bonus) is ignored.
+YEARLY_MIN, YEARLY_MAX = 15000, 500000
+MONEY = r"\$\s*([\d,]+(?:\.\d+)?)"
+SALARY_TEXT = re.compile(
+    MONEY + r"(?:\s*(?:to|-|\u2013)\s*" + MONEY + r")?"
+    r"\s*(?:/|p\s?er|a)?\s*(month|hour|hr|year|annual)", re.I)
+PAY_GRADE = re.compile(r"\b(SR|EM|BC|WS|WB)-?(\d{1,2})\b")
+
+
+def to_number(text):
+    try:
+        return float(str(text).replace(",", "").strip())
+    except (TypeError, ValueError):
         return None
-    pattern = r"\$\s*([\d,]+(?:\.\d+)?).*?(month|year|hr|hour|mon)"
-    match = re.search(pattern, text, re.IGNORECASE)
-    if match:
-        try:
-            amount = float(match.group(1).replace(",", ""))
-            unit = match.group(2).lower()
-            if "mon" in unit:
-                return amount * 12
-            if "yr" in unit or "year" in unit:
-                return amount
-            if "hr" in unit or "hour" in unit:
-                return amount * 2080
-        except Exception:
-            return None
+
+
+def yearly(amount, unit):
+    unit = unit.lower()
+    if unit.startswith(("hour", "hr")):
+        factor = PER_YEAR["hour"]
+    elif unit.startswith(("year", "annual")):
+        factor = PER_YEAR["year"]
+    else:
+        factor = PER_YEAR["month"]
+    value = round(amount * factor)
+    return value if YEARLY_MIN <= value <= YEARLY_MAX else None
+
+
+def parse_salary(item_min, item_max, item_interval, description):
+    """Return (lowest, highest) yearly pay, or (None, None).
+
+    Numeric minimumSalary/maximumSalary win. Otherwise every "$X per unit"
+    or "$X to $Y per unit" in the description counts, so a posting for
+    levels III and IV reports the bottom of III to the top of IV."""
+    low, high = to_number(item_min), to_number(item_max)
+    if low:
+        unit = item_interval or "month"
+        low = yearly(low, unit)
+        high = yearly(high, unit) if high else low
+        if low:
+            return low, max(low, high or low)
+
+    text = clean_text(description)
+    values = []
+    for start, end, unit in SALARY_TEXT.findall(text):
+        for amount in (start, end):
+            value = yearly(to_number(amount), unit) if amount else None
+            if value:
+                values.append(value)
+    if not values:
+        return None, None
+    return min(values), max(values)
+
+
+def parse_pay_grade(description, classspec):
+    """First pay grade found, formatted like SR-20, or None."""
+    for text in (clean_text(description), classspec or ""):
+        match = PAY_GRADE.search(text)
+        if match:
+            return f"{match.group(1)}-{int(match.group(2)):02d}"
     return None
 
 
@@ -233,6 +283,12 @@ def scrape_civil_service():
             item.findtext("joblisting:examplesofduties", namespaces=NS)
             or "View listing for details."
         )
+        description = item.findtext("description") or ""
+        salary_low, salary_high = parse_salary(
+            item.findtext("joblisting:minimumSalary", namespaces=NS),
+            item.findtext("joblisting:maximumSalary", namespaces=NS),
+            item.findtext("joblisting:salaryInterval", namespaces=NS),
+            description)
         division, division_source = infer_division(
             item.findtext("joblisting:division", namespaces=NS), title, duties)
         jobs.append({
@@ -241,7 +297,11 @@ def scrape_civil_service():
             "division": division,
             "division_source": division_source,
             "location": title_case(loc_part),
-            "yearly_salary": parse_salary(item.findtext("description") or ""),
+            "yearly_salary": salary_low,
+            "yearly_salary_max": salary_high,
+            "pay_grade": parse_pay_grade(
+                description,
+                item.findtext("joblisting:classspec", namespaces=NS)),
             "posted": pub[:16] if pub else "",
             "closing": item.findtext("joblisting:advertiseToDateTime", namespaces=NS) or "Continuous",
             "link": item.findtext("link"),
