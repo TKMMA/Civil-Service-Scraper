@@ -3,7 +3,8 @@
     {
       "title": "Forestry & Wildlife Worker II",
       "job_number": "OHHI-26073",
-      "division": "DLNR",
+      "division": "Forestry and Wildlife",
+      "division_source": "title",
       "location": "Maui (ohhi)",
       "yearly_salary": null,
       "posted": "Mon, 21 Sep 2026",
@@ -14,7 +15,8 @@
     {
       "title": "Park Caretaker I",
       "job_number": "OHHI-26071",
-      "division": "DLNR",
+      "division": "State Parks",
+      "division_source": "title",
       "location": "Kapaa, Kauai (ohhi)",
       "yearly_salary": null,
       "posted": "Thu, 17 Sep 2026",
@@ -25,7 +27,8 @@
     {
       "title": "Equipment Operator II",
       "job_number": "26-0323",
-      "division": "DLNR",
+      "division": "Division not listed",
+      "division_source": "none",
       "location": "Halawa To Kalihi, Oahu",
       "yearly_salary": null,
       "posted": "Fri, 11 Sep 2026",
@@ -36,7 +39,8 @@
     {
       "title": "Forestry & Wildlife Worker III",
       "job_number": "26-0351",
-      "division": "DLNR",
+      "division": "Forestry and Wildlife",
+      "division_source": "title",
       "location": "Manoa To Kahala, Oahu",
       "yearly_salary": null,
       "posted": "Fri, 11 Sep 2026",
@@ -47,7 +51,8 @@
     {
       "title": "General Professional IV (harbor, Inspections & Audits)",
       "job_number": "25-0220",
-      "division": "DLNR",
+      "division": "Boating and Ocean Recreation",
+      "division_source": "title",
       "location": "Maalaea, Maui",
       "yearly_salary": 66324.0,
       "posted": "Fri, 10 Jul 2026",
@@ -58,7 +63,8 @@
     {
       "title": "Land Agent II And III",
       "job_number": "25-0121",
-      "division": "DLNR",
+      "division": "Land Division",
+      "division_source": "title",
       "location": "Lihue, Kauai",
       "yearly_salary": 56700.0,
       "posted": "Wed, 01 Jul 2026",
@@ -69,7 +75,8 @@
     {
       "title": "Education Specialist (hunter & Conservation Resources) III",
       "job_number": "22-0636",
-      "division": "DLNR",
+      "division": "Forestry and Wildlife",
+      "division_source": "title",
       "location": "Pearl City, Oahu",
       "yearly_salary": 61284.0,
       "posted": "Wed, 01 Jul 2026",
@@ -81,6 +88,7 @@
       "title": "Park Maintenance Supervisor II",
       "job_number": "DLNR-2025-0009",
       "division": "State Parks",
+      "division_source": "feed",
       "location": "Kokee, Kauai",
       "yearly_salary": null,
       "posted": "Wed, 01 Jul 2026",
@@ -91,7 +99,8 @@
     {
       "title": "Park Caretaker I",
       "job_number": "OHHI-26029",
-      "division": "DLNR",
+      "division": "State Parks",
+      "division_source": "title",
       "location": "Waimea, Kauai (ohhi)",
       "yearly_salary": null,
       "posted": "Wed, 01 Jul 2026",
@@ -102,7 +111,8 @@
     {
       "title": "Conveyancing Supervisor",
       "job_number": "DLNR-2024-0004",
-      "division": "Bureau Of Conveyances",
+      "division": "Bureau of Conveyances",
+      "division_source": "feed",
       "location": "Downtown, Oahu",
       "yearly_salary": 72264.0,
       "posted": "Wed, 01 Jul 2026",
@@ -113,7 +123,8 @@
     {
       "title": "Abstractor IX",
       "job_number": "24-0066",
-      "division": "DLNR",
+      "division": "Bureau of Conveyances",
+      "division_source": "title",
       "location": "Downtown, Oahu",
       "yearly_salary": 66492.0,
       "posted": "Wed, 01 Jul 2026",
@@ -124,7 +135,8 @@
     {
       "title": "Forestry & Wildlife Technician IV",
       "job_number": "26-0130",
-      "division": "DLNR",
+      "division": "Forestry and Wildlife",
+      "division_source": "title",
       "location": "Kamuela/kohala/waikoloa - Hawaii Island",
       "yearly_salary": 46800.0,
       "posted": "Wed, 01 Jul 2026",
@@ -135,7 +147,8 @@
     {
       "title": "Abstracting Assistant IV",
       "job_number": "25-0380",
-      "division": "DLNR",
+      "division": "Bureau of Conveyances",
+      "division_source": "title",
       "location": "Downtown, Oahu",
       "yearly_salary": 43272.0,
       "posted": "Tue, 21 Apr 2026",
@@ -146,7 +159,8 @@
     {
       "title": "Boating And Ocean Recreation Harbor Agent II",
       "job_number": "26-0119",
-      "division": "DLNR",
+      "division": "Boating and Ocean Recreation",
+      "division_source": "title",
       "location": "Oahu",
       "yearly_salary": 48648.0,
       "posted": "Mon, 09 Mar 2026",
@@ -157,7 +171,8 @@
     {
       "title": "Abstracting Assistant V",
       "job_number": "23-0385",
-      "division": "DLNR",
+      "division": "Bureau of Conveyances",
+      "division_source": "title",
       "location": "Downtown, Oahu",
       "yearly_salary": 46800.0,
       "posted": "Thu, 12 Feb 2026",
@@ -166,5 +181,5 @@
       "duties": "These Positions Perform Duties In Support Of Or Involved With The Examining, Determining And Evidencing Of Title To Real Property Or Interests Therein. The Examination Of A Title Involves Making An Investigation In The Offices Where The Public Records Are Kept, To Ascertain The History And Present Condition Of The Title To Land, And Its Status With Reference To Liens, Encumbrances, &quot;clouds,&quot; Etc. This Includes The Technical Process Of Searching The Records; Examining All Conveyances Of Whatever Kind Or Nature, Which In Any Manner Affect Said Land, Or Any Estate Or Interest Therein; Summarizing (abstracting) The Operative Portions Of These Conveyances To Record The History Of The Title; Determining Ownership And All Existing Liens And Encumbrances, And Noting All Defects. The Evidence Of Title Is Any Document Establishing The Title To Property. This Includes The Review Of The History And Determination Of The Title, Or Review Of Land Court Documents For Registration, Prior To The Preparation And Issuance Of One Of The Following Types Of Evidence: Abstracts Of Title (issued By A Licensed Abstract Maker); Certificates Of Title (issued By Assistant Registrars Of Land Court); Certificates Or Chains Of Title (issued By A Licensed Abstract Maker). At The IV Level, Abstracts Pertinent Information From Land Court Orders, Trust Deeds, And Other Legal Documents For The Preparation Of Title Certificates, Abstracts Or Chains Of Title; Assigns And Supervises Other Employees In The Preparation Of Certificates Of Title; Keeps Other Files And Records; And Performs Other Related Duties As Assigned."
     }
   ],
-  "generated_at_utc": "2026-09-22T20:56:48.641999+00:00"
+  "generated_at_utc": "2026-09-23T01:39:39.704041+00:00"
 }
