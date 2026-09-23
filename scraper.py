@@ -13,6 +13,7 @@ nothing does. Each job also gets "division_source" (feed, title, duties or
 none) so any odd result can be traced back to the rule that produced it.
 """
 
+import html
 import json
 import re
 import sys
@@ -103,15 +104,65 @@ DUTIES_RULES = [
 ]
 
 
+# --- TEXT CLEANUP ---
+# The feed sends titles and locations in ALL CAPS, and duties as ordinary
+# sentences. Duties are left as written. Titles and locations are recased
+# with title_case(), which keeps acronyms and Roman numerals in capitals,
+# lowercases short joining words, and capitalizes after "(", "/" and "-".
+ACRONYMS = {"dlnr", "dar", "docare", "dobor", "dofaw", "ohhi", "scuba",
+            "hcri", "himb", "noaa", "rcuh", "uh", "id", "it", "pma", "cls",
+            "ucc", "orma", "hrs", "har"}
+SMALL_WORDS = {"a", "an", "and", "as", "at", "by", "for", "in", "of", "on",
+               "or", "the", "to", "with"}
+ROMAN = re.compile(r"^(?:x{0,2})(?:ix|iv|v?i{0,3})$")
+WORD = re.compile(r"[A-Za-z]+(?:['\u2019][A-Za-z]+)*")
+
+
 def clean_text(text):
+    """Strip HTML, decode entities, and collapse whitespace. Casing is kept."""
     if not text:
         return ""
-    text = re.sub("<[^<]+?>", " ", text)
-    text = " ".join(text.split())
-    words = text.lower().split()
-    caps_list = ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x",
-                 "dlnr", "dar", "scuba", "hcri", "himb"]
-    return " ".join(w.upper() if w in caps_list else w.capitalize() for w in words)
+    text = re.sub(r"<[^<]+?>", " ", text)
+    text = html.unescape(text)
+    return " ".join(text.split())
+
+
+def title_case(text):
+    """Recase an ALL CAPS title or location. Mixed case text is left alone."""
+    text = clean_text(text)
+    upper = sum(c.isupper() for c in text)
+    lower = sum(c.islower() for c in text)
+    if lower > upper:
+        return text
+
+    def fix(match):
+        word = match.group(0)
+        low = word.lower()
+        before = text[:match.start()].rstrip()
+        starts_phrase = not before or before[-1] in "(/-,:"
+        if low in ACRONYMS or ROMAN.match(low):
+            return word.upper()
+        if low in SMALL_WORDS and not starts_phrase:
+            return low
+        # An apostrophe before a vowel in a place name is an okina
+        # (MOLOKA'I, HONOKA'A); keep apostrophes like STATE'S as they are.
+        low = re.sub(r"['\u2019](?=[aeiou])", "\u02bb", low)
+        return low[0].upper() + low[1:]
+
+    return WORD.sub(fix, text)
+
+
+def split_title(raw_title):
+    """Split "TITLE - LOCATION". A spaced dash wins, so PART-TIME or
+    PARA-MEDICAL in a title is not mistaken for the separator."""
+    parts = re.split(r"\s+-\s*|\s*-\s+", raw_title, maxsplit=1)
+    if len(parts) == 1 and "-" in raw_title:
+        parts = raw_title.split("-", 1)
+    if len(parts) == 1:
+        return raw_title, "Hawaii"
+    # Any further " - " in the location reads better as a comma
+    # (KAMUELA/KOHALA/WAIKOLOA - HAWAII ISLAND).
+    return parts[0], re.sub(r"\s+-\s+", ", ", parts[1].strip())
 
 
 def parse_salary(text):
@@ -145,7 +196,7 @@ def infer_division(feed_division, title, duties):
     """Return (division label, which source decided it)."""
     feed = " ".join((feed_division or "").split())
     if not DEPARTMENT_ONLY.match(feed):
-        return first_match(FEED_RULES, feed) or clean_text(feed), "feed"
+        return first_match(FEED_RULES, feed) or title_case(feed), "feed"
     label = first_match(TITLE_RULES, title)
     if label:
         return label, "title"
@@ -174,14 +225,10 @@ def scrape_civil_service():
         if not any(x in dept for x in DEPARTMENT_MATCHES):
             continue
 
-        raw_title = item.findtext("title") or ""
-        if "-" in raw_title:
-            title_part, loc_part = raw_title.split("-", 1)
-        else:
-            title_part, loc_part = raw_title, "Hawaii"
+        title_part, loc_part = split_title(item.findtext("title") or "")
 
         pub = item.findtext("pubDate")
-        title = clean_text(title_part)
+        title = title_case(title_part)
         duties = clean_text(
             item.findtext("joblisting:examplesofduties", namespaces=NS)
             or "View listing for details."
@@ -193,7 +240,7 @@ def scrape_civil_service():
             "job_number": item.findtext("joblisting:jobNumberSingle", namespaces=NS) or "N/A",
             "division": division,
             "division_source": division_source,
-            "location": clean_text(loc_part),
+            "location": title_case(loc_part),
             "yearly_salary": parse_salary(item.findtext("description") or ""),
             "posted": pub[:16] if pub else "",
             "closing": item.findtext("joblisting:advertiseToDateTime", namespaces=NS) or "Continuous",
