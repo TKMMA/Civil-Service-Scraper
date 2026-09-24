@@ -317,6 +317,24 @@ def scrape_civil_service():
     return jobs
 
 
+def read_rcuh(now):
+    """RCUH rows and their timestamp. RCUH is a bonus source: if it fails,
+    keep the last good RCUH rows from the committed jobs.json and never let
+    it stop the civil service refresh."""
+    try:
+        from rcuh_scraper import scrape_rcuh
+        return scrape_rcuh(), now
+    except Exception as exc:
+        print(f"::warning::RCUH listings not refreshed, keeping the last good "
+              f"copy: {exc}", flush=True)
+    try:
+        with open("jobs.json", encoding="utf-8") as fh:
+            prev = json.load(fh)
+        return prev.get("rcuh") or [], prev.get("rcuh_generated_at_utc")
+    except Exception:
+        return [], None
+
+
 def main():
     try:
         jobs = scrape_civil_service()
@@ -329,9 +347,13 @@ def main():
               "Not writing jobs.json, so the existing data stays in place.")
         sys.exit(1)
 
+    now = datetime.now(timezone.utc).isoformat()
+    rcuh, rcuh_stamp = read_rcuh(now)
     data = {
         "civil_service": jobs,
-        "generated_at_utc": datetime.now(timezone.utc).isoformat(),
+        "generated_at_utc": now,
+        "rcuh": rcuh,
+        "rcuh_generated_at_utc": rcuh_stamp,
     }
     with open("jobs.json", "w", encoding="utf-8") as fh:
         json.dump(data, fh, indent=2)
