@@ -81,13 +81,22 @@ SECTION_END = re.compile(
     r"SUPPLEMENTAL INFORMATION|APPLICATION REQUIREMENTS)\b")
 
 
+# RCUH's pages show the okina as an inverted question mark (a character set
+# mix-up on their side), e.g. "Napu?u". Put the okina back between letters.
+BAD_OKINA = re.compile("(?<=[A-Za-z])" + chr(0xBF) + "(?=[A-Za-z])")
+
+
+def fix_okina(text):
+    return BAD_OKINA.sub(chr(0x2BB), text)
+
+
 def field_values(page, field_id):
     """Every value of one PeopleSoft field, in row order."""
     pattern = re.compile(
         r"id=['\"]" + re.escape(field_id) + r"\$(\d+)['\"]\s*>([^<]*)<")
     rows = {}
     for idx, value in pattern.findall(page):
-        rows[int(idx)] = html.unescape(value).strip()
+        rows[int(idx)] = fix_okina(html.unescape(value).strip())
     return rows
 
 
@@ -109,7 +118,7 @@ def yearly(amount, frequency):
 def page_text(page):
     """Readable text of a detail page, from the job summary onward."""
     text = re.sub(r"<(script|style)\b.*?</\1>", " ", page, flags=re.S | re.I)
-    text = clean_text(text)
+    text = fix_okina(clean_text(text))
     start = text.find("Job Summary")
     return text[start:] if start != -1 else text
 
