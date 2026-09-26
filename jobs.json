@@ -1,6 +1,20 @@
 {
   "civil_service": [
     {
+      "title": "Equipment Operator II",
+      "job_number": "26-0323",
+      "division": "Division not listed",
+      "division_source": "none",
+      "location": "Halawa to Kalihi, Oahu",
+      "yearly_salary": 62952,
+      "yearly_salary_max": 62952,
+      "pay_grade": "BC-06",
+      "posted": "Fri, 25 Sep 2026",
+      "closing": "Continuous",
+      "link": "https://www.governmentjobs.com/careers/hawaii/jobs/5445041",
+      "duties": "Operates of TWO (2) or more types of motorized equipment such as trucks, backhoes and tractors/excavators having a factory rated capacity of 1 1/2 but less than 5 tons as a major work assignment; may perform manual work task in connection with general construction and maintenance work; and performs other related duties as assigned."
+    },
+    {
       "title": "Forestry & Wildlife Worker II",
       "job_number": "OHHI-26073",
       "division": "Forestry and Wildlife",
@@ -27,20 +41,6 @@
       "closing": "Continuous",
       "link": "https://www.governmentjobs.com/careers/hawaii/jobs/5485244",
       "duties": "Cares for, maintains and beautifies an assigned park area, playground or gymnasium; may operate a power mower; and performs other related duties as assigned."
-    },
-    {
-      "title": "Equipment Operator II",
-      "job_number": "26-0323",
-      "division": "Division not listed",
-      "division_source": "none",
-      "location": "Halawa to Kalihi, Oahu",
-      "yearly_salary": 62952,
-      "yearly_salary_max": 62952,
-      "pay_grade": "BC-06",
-      "posted": "Fri, 11 Sep 2026",
-      "closing": "Continuous",
-      "link": "https://www.governmentjobs.com/careers/hawaii/jobs/5445041",
-      "duties": "Operates of TWO (2) or more types of motorized equipment such as trucks, backhoes and tractors/excavators having a factory rated capacity of 1 1/2 but less than 5 tons as a major work assignment; may perform manual work task in connection with general construction and maintenance work; and performs other related duties as assigned."
     },
     {
       "title": "Forestry & Wildlife Worker III",
@@ -197,7 +197,7 @@
       "duties": "These positions perform duties in support of or involved with the examining, determining and evidencing of title to real property or interests therein. The examination of a title involves making an investigation in the offices where the public records are kept, to ascertain the history and present condition of the title to land, and its status with reference to liens, encumbrances, \"clouds,\" etc. This includes the technical process of searching the records; examining all conveyances of whatever kind or nature, which in any manner affect said land, or any estate or interest therein; summarizing (abstracting) the operative portions of these conveyances to record the history of the title; determining ownership and all existing liens and encumbrances, and noting all defects. The evidence of title is any document establishing the title to property. This includes the review of the history and determination of the title, or review of land court documents for registration, prior to the preparation and issuance of one of the following types of evidence: abstracts of title (issued by a licensed abstract maker); Certificates of Title (issued by Assistant Registrars of Land Court); Certificates or chains of Title (issued by a licensed abstract maker). At the IV level, abstracts pertinent information from Land Court Orders, trust deeds, and other legal documents for the preparation of Title Certificates, abstracts or chains of title; assigns and supervises other employees in the preparation of Certificates of Title; keeps other files and records; and performs other related duties as assigned."
     }
   ],
-  "generated_at_utc": "2026-09-25T21:09:34.573328+00:00",
+  "generated_at_utc": "2026-09-26T20:42:20.215446+00:00",
   "rcuh": [
     {
       "title": "Makai Watch Associate",
