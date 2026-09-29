@@ -1,6 +1,20 @@
 {
   "civil_service": [
     {
+      "title": "Forestry & Wildlife Worker II",
+      "job_number": "26-0387",
+      "division": "Forestry and Wildlife",
+      "division_source": "title",
+      "location": "Hilo, Hawaii Island",
+      "yearly_salary": 60516,
+      "yearly_salary_max": 60516,
+      "pay_grade": "BC-05",
+      "posted": "Mon, 28 Sep 2026",
+      "closing": "Continuous",
+      "link": "https://www.governmentjobs.com/careers/hawaii/jobs/5494560",
+      "duties": "Independently performs a variety of job operations in support of forestry, wildlife and other natural resource management programs; and performs other related duties as assigned."
+    },
+    {
       "title": "Equipment Operator II",
       "job_number": "26-0323",
       "division": "Division not listed",
@@ -13,20 +27,6 @@
       "closing": "Continuous",
       "link": "https://www.governmentjobs.com/careers/hawaii/jobs/5445041",
       "duties": "Operates of TWO (2) or more types of motorized equipment such as trucks, backhoes and tractors/excavators having a factory rated capacity of 1 1/2 but less than 5 tons as a major work assignment; may perform manual work task in connection with general construction and maintenance work; and performs other related duties as assigned."
-    },
-    {
-      "title": "Forestry & Wildlife Worker II",
-      "job_number": "OHHI-26073",
-      "division": "Forestry and Wildlife",
-      "division_source": "title",
-      "location": "Maui (OHHI)",
-      "yearly_salary": 60516,
-      "yearly_salary_max": 60516,
-      "pay_grade": "BC-05",
-      "posted": "Mon, 21 Sep 2026",
-      "closing": "Continuous",
-      "link": "https://www.governmentjobs.com/careers/hawaii/jobs/5485031",
-      "duties": "Independently performs a variety of job operations in support of forestry, wildlife and other natural resource management programs; and performs other related duties as assigned."
     },
     {
       "title": "Park Caretaker I",
@@ -197,8 +197,40 @@
       "duties": "These positions perform duties in support of or involved with the examining, determining and evidencing of title to real property or interests therein. The examination of a title involves making an investigation in the offices where the public records are kept, to ascertain the history and present condition of the title to land, and its status with reference to liens, encumbrances, \"clouds,\" etc. This includes the technical process of searching the records; examining all conveyances of whatever kind or nature, which in any manner affect said land, or any estate or interest therein; summarizing (abstracting) the operative portions of these conveyances to record the history of the title; determining ownership and all existing liens and encumbrances, and noting all defects. The evidence of title is any document establishing the title to property. This includes the review of the history and determination of the title, or review of land court documents for registration, prior to the preparation and issuance of one of the following types of evidence: abstracts of title (issued by a licensed abstract maker); Certificates of Title (issued by Assistant Registrars of Land Court); Certificates or chains of Title (issued by a licensed abstract maker). At the IV level, abstracts pertinent information from Land Court Orders, trust deeds, and other legal documents for the preparation of Title Certificates, abstracts or chains of title; assigns and supervises other employees in the preparation of Certificates of Title; keeps other files and records; and performs other related duties as assigned."
     }
   ],
-  "generated_at_utc": "2026-09-28T22:58:34.024131+00:00",
+  "generated_at_utc": "2026-09-29T21:56:52.531703+00:00",
   "rcuh": [
+    {
+      "title": "PCSU Forestry Field Project Assistant (Invasive Species Management)",
+      "job_number": "226593",
+      "project": "Pacific Coop Studies Unit",
+      "division": "Forestry and Wildlife",
+      "division_source": "posting",
+      "location": "Maui",
+      "fte": "100.0%",
+      "pay_frequency": "Monthly",
+      "yearly_salary": 43848,
+      "yearly_salary_max": 43848,
+      "posted": "09/28/2026",
+      "closing": "10/12/2026",
+      "link": "https://hr.rcuh.com/psc/hcmprd_exapp/EMPLOYEE/HRMS/c/HRS_HRAM_FL.HRS_CG_SEARCH_FL.GBL?Page=HRS_APP_JBPST_FL&Action=U&FOCUS=Applicant&SiteId=1&JobOpeningId=226593&PostingSeq=1",
+      "duties": "Conducts alien and native plant monitoring and invasive plant control. Controls alien plants using mechanical and chemical/biological techniques. Assists with fuels mitigation and vegetation management, building, inspecting, and maintaining fences. Monitors and controls alien plants, feral pigs, axis deer, feral goats and predators. Conducts ungulate (e.g., feral pigs, feral and mouflon sheep, and other ungulates as necessary) control and monitoring activities in Maui Nui DOFAW managed lands and watershed partnership lands. Deploys game cameras and bait stations to facilitate ungulate capture. Inputs data into GPS equipment and computer database. Establishes and monitors transects to..."
+    },
+    {
+      "title": "PCSU Forestry Field Project Assistant (Landscape Conservation)",
+      "job_number": "226591",
+      "project": "Pacific Coop Studies Unit",
+      "division": "Forestry and Wildlife",
+      "division_source": "posting",
+      "location": "Maui",
+      "fte": "100.0%",
+      "pay_frequency": "Monthly",
+      "yearly_salary": 43848,
+      "yearly_salary_max": 43848,
+      "posted": "09/28/2026",
+      "closing": "10/12/2026",
+      "link": "https://hr.rcuh.com/psc/hcmprd_exapp/EMPLOYEE/HRMS/c/HRS_HRAM_FL.HRS_CG_SEARCH_FL.GBL?Page=HRS_APP_JBPST_FL&Action=U&FOCUS=Applicant&SiteId=1&JobOpeningId=226591&PostingSeq=1",
+      "duties": "Assists with building, inspecting, and maintaining fences. Monitors and controls alien plants, feral pigs, axis deer, feral goats and predators at the within and around each designated management area of interest (MOI) or exclosure. Conducts ungulate (e.g., feral pigs, feral and mouflon sheep, and other ungulates as necessary) control and monitoring activities in designated MOIs or exclosures, Maui Nui DOFAW managed lands and watershed partnership lands. Deploys game cameras and bait stations to facilitate ungulate and small predator capture. Inputs data into GPS equipment and computer database. Conducts alien and native plant monitoring and invasive plant control. Controls alien plants..."
+    },
     {
       "title": "Protected Species Planning Technician",
       "job_number": "226586",
@@ -243,7 +275,7 @@
       "yearly_salary": 65968,
       "yearly_salary_max": 68616,
       "posted": "09/14/2026",
-      "closing": "09/28/2026",
+      "closing": "10/12/2026",
       "link": "https://hr.rcuh.com/psc/hcmprd_exapp/EMPLOYEE/HRMS/c/HRS_HRAM_FL.HRS_CG_SEARCH_FL.GBL?Page=HRS_APP_JBPST_FL&Action=U&FOCUS=Applicant&SiteId=1&JobOpeningId=226561&PostingSeq=1",
       "duties": "Leads public education and outreach efforts, working closely with Kauai Division of Forestry and Wildlife (DOFAW) and other project staff to raise public awareness of watershed threats and generates support for community control efforts. Develops reports, and prepares publications, press releases and other public outreach documents. Encourages favorable public relations of natural resource objectives. Develops content and curriculum for classroom presentations about watershed threats and natural resource management and watershed protection programs. Conducts school and private group outreach talks, develops cultural and biological talking points for public events and develops displays and..."
     },
@@ -280,22 +312,6 @@
       "duties": "Participates in a wide variety of activities associated with the NNRM and the Division of Forestry and Wildlife (DOFAW) at the Pu'u Wa'awa'a State Forest Reserve (PWW) and Pu'u Anahulu Game Management Area (PGMA). Assists with fencing construction for new and improved conservation units. Conducts feral pig, sheep, and goat control (game drives) and monitoring activities. Assists with ungulate density and abundance surveys using a variety of estimation methods. Walks and/or drives miles of rugged terrain to monitor and repair fences. Travels via helicopter to access field sites when necessary. Conducts alien plant monitoring and control in the project area. Controls alien plants using..."
     },
     {
-      "title": "MKFRP Field Assistant",
-      "job_number": "226460",
-      "project": "Pacific Coop Studies Unit",
-      "division": "Forestry and Wildlife",
-      "division_source": "posting",
-      "location": "Hawaii",
-      "fte": "100.0%",
-      "pay_frequency": "Monthly",
-      "yearly_salary": 42300,
-      "yearly_salary_max": 42300,
-      "posted": "07/27/2026",
-      "closing": "09/28/2026",
-      "link": "https://hr.rcuh.com/psc/hcmprd_exapp/EMPLOYEE/HRMS/c/HRS_HRAM_FL.HRS_CG_SEARCH_FL.GBL?Page=HRS_APP_JBPST_FL&Action=U&FOCUS=Applicant&SiteId=1&JobOpeningId=226460&PostingSeq=1",
-      "duties": "Participates in a variety of activities associated the Mauna Kea Forest Restoration Project (MKFRP) and the Division of Forestry and Wildlife (DOFAW) primarily on Mauna Kea including Puu Mali and Kaohe Restoration Sites, Kaohe Game Management Area, and Mauna Kea Forest Reserve. Monitors and controls non-native predators, alien plants, and feral ungulates. Conducts restoration of dryland forest including seed collection and processing, propagation, outplanting, and monitoring of native species at restoration areas. Collects and analyzes technical field data, and assists with report writing. Assists with coordinating volunteers and interns, and works with other field technicians to conduct..."
-    },
-    {
       "title": "MKWP Wildfire Risk Reduction Coordinator",
       "job_number": "226347",
       "project": "Pacific Coop Studies Unit",
@@ -312,5 +328,5 @@
       "duties": "This position involves regular field work in remote and challenging terrain to implement wildfire mitigation and recovery strategies. The overarching aim of this position is to reduce landscape level watershed threats from wildfire within and around the 50,000-acre watershed project area. Manages, plans, implements, coordinates, and facilitates wildland fire prevention and mitigation programs under the guidance of the Mauna Kahalawai Watershed Partnership (MKWP) Program Manager and the MKWP Watershed Management Plan. Works as part of a team to serve the MKWP mission to reverse the negative trend of forest degradation caused by threats such as invasive species, human impacts, and especially..."
     }
   ],
-  "rcuh_generated_at_utc": "2026-09-28T22:58:34.024131+00:00"
+  "rcuh_generated_at_utc": "2026-09-29T21:56:52.531703+00:00"
 }
