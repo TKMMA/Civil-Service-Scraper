@@ -1,20 +1,6 @@
 {
   "civil_service": [
     {
-      "title": "Forestry & Wildlife Worker II",
-      "job_number": "26-0387",
-      "division": "Forestry and Wildlife",
-      "division_source": "title",
-      "location": "Hilo, Hawaii Island",
-      "yearly_salary": 60516,
-      "yearly_salary_max": 60516,
-      "pay_grade": "BC-05",
-      "posted": "Mon, 28 Sep 2026",
-      "closing": "Continuous",
-      "link": "https://www.governmentjobs.com/careers/hawaii/jobs/5494560",
-      "duties": "Independently performs a variety of job operations in support of forestry, wildlife and other natural resource management programs; and performs other related duties as assigned."
-    },
-    {
       "title": "Equipment Operator II",
       "job_number": "26-0323",
       "division": "Division not listed",
@@ -169,20 +155,6 @@
       "duties": "These positions perform duties in support of or involved with the examining, determining and evidencing of title to real property or interests therein. The examination of a title involves making an investigation in the offices where the public records are kept, to ascertain the history and present condition of the title to land, and its status with reference to liens, encumbrances, \"clouds,\" etc. This includes the technical process of searching the records; examining all conveyances of whatever kind or nature, which in any manner affect said land, or any estate or interest therein; summarizing (abstracting) the operative portions of these conveyances to record the history of the title; determining ownership and all existing liens and encumbrances, and noting all defects. The evidence of title is any document establishing the title to property. This includes the review of the history and determination of the title, or review of land court documents for registration, prior to the preparation and issuance of one of the following types of evidence: abstracts of title (issued by a licensed abstract maker); Certificates of Title (issued by Assistant Registrars of Land Court); Certificates or chains of Title (issued by a licensed abstract maker). At the IV level, abstracts pertinent information from Land Court Orders, trust deeds, and other legal documents for the preparation of Title Certificates, abstracts or chains of title; assigns and supervises other employees in the preparation of Certificates of Title; keeps other files and records; and performs other related duties as assigned."
     },
     {
-      "title": "Boating and Ocean Recreation Harbor Agent II",
-      "job_number": "26-0119",
-      "division": "Boating and Ocean Recreation",
-      "division_source": "title",
-      "location": "Oahu",
-      "yearly_salary": 48648,
-      "yearly_salary_max": 61596,
-      "pay_grade": "SR-14",
-      "posted": "Mon, 09 Mar 2026",
-      "closing": "Continuous",
-      "link": "https://www.governmentjobs.com/careers/hawaii/jobs/5262686",
-      "duties": "Boating and Ocean Recreation Harbor Agents are responsible for operation and maintenance of harbors for light and medium draft vessels under the jurisdiction of the Department of Land and Natural Resources, small boat ramps; and the monitoring and permitting of recreational and commercial activity in the waters of the State of Hawaii. This responsibility includes waters designated as Ocean Recreation Management Areas (ORMA) as well as the ocean waters of the State from the high water mark out to three miles. Harbor operation and maintenance duties include assigning berths; regulating movement of vessels in the harbor; providing for billing and collection of fees; enforcing traffic, boating and harbor regulations; inspecting boats; and inspecting and maintaining harbor facilities and equipment. In addition, positions oversee recreational and commercial ocean activities within the harbors and in waters surrounding the harbors out to three miles, to ensure compliance with State laws and rules, and address user conflicts. Examples of recreational and commercial ocean activities are surf contests, canoe regattas, tour boats, charter cruises, and commercial fishing charters. Positions in this class level are one of two types : 1) Responsible for the operation and maintenance of one or several small boat harbors, boat ramps, and ocean waters of the State representing harbor and ocean activities which are operationally the least active and complex . 2) Responsible to operate and maintain the assigned harbors and/or boat ramps; and enforce compliance with laws and rules for recreational and commercial ocean activities in the waters near and surrounding the assigned harbors and/or boat ramps. Position reports to a higher level agent who has authority over and responsibility for the operation and maintenance of these areas."
-    },
-    {
       "title": "Abstracting Assistant V",
       "job_number": "23-0385",
       "division": "Bureau of Conveyances",
@@ -197,7 +169,7 @@
       "duties": "These positions perform duties in support of or involved with the examining, determining and evidencing of title to real property or interests therein. The examination of a title involves making an investigation in the offices where the public records are kept, to ascertain the history and present condition of the title to land, and its status with reference to liens, encumbrances, \"clouds,\" etc. This includes the technical process of searching the records; examining all conveyances of whatever kind or nature, which in any manner affect said land, or any estate or interest therein; summarizing (abstracting) the operative portions of these conveyances to record the history of the title; determining ownership and all existing liens and encumbrances, and noting all defects. The evidence of title is any document establishing the title to property. This includes the review of the history and determination of the title, or review of land court documents for registration, prior to the preparation and issuance of one of the following types of evidence: abstracts of title (issued by a licensed abstract maker); Certificates of Title (issued by Assistant Registrars of Land Court); Certificates or chains of Title (issued by a licensed abstract maker). At the IV level, abstracts pertinent information from Land Court Orders, trust deeds, and other legal documents for the preparation of Title Certificates, abstracts or chains of title; assigns and supervises other employees in the preparation of Certificates of Title; keeps other files and records; and performs other related duties as assigned."
     }
   ],
-  "generated_at_utc": "2026-09-30T21:55:09.341219+00:00",
+  "generated_at_utc": "2026-10-01T22:23:31.069040+00:00",
   "rcuh": [
     {
       "title": "PCSU Forestry Field Project Assistant (Invasive Species Management)",
@@ -328,5 +300,5 @@
       "duties": "This position involves regular field work in remote and challenging terrain to implement wildfire mitigation and recovery strategies. The overarching aim of this position is to reduce landscape level watershed threats from wildfire within and around the 50,000-acre watershed project area. Manages, plans, implements, coordinates, and facilitates wildland fire prevention and mitigation programs under the guidance of the Mauna Kahalawai Watershed Partnership (MKWP) Program Manager and the MKWP Watershed Management Plan. Works as part of a team to serve the MKWP mission to reverse the negative trend of forest degradation caused by threats such as invasive species, human impacts, and especially..."
     }
   ],
-  "rcuh_generated_at_utc": "2026-09-30T21:55:09.341219+00:00"
+  "rcuh_generated_at_utc": "2026-10-01T22:23:31.069040+00:00"
 }
