@@ -1,6 +1,34 @@
 {
   "civil_service": [
     {
+      "title": "General Professional IV, Archaeologist",
+      "job_number": "DLNR-2026-0002",
+      "division": "State Parks",
+      "division_source": "feed",
+      "location": "Oahu",
+      "yearly_salary": null,
+      "yearly_salary_max": null,
+      "pay_grade": "SR-22",
+      "posted": "Thu, 15 Oct 2026",
+      "closing": "Continuous",
+      "link": "https://www.governmentjobs.com/careers/hawaii/jobs/5473816-0",
+      "duties": "General Professional IV (Archaeologist): As an Archaeologist, you will conduct archaeological and historical research, perform archaeological surveys and excavations, monitor construction projects, and prepare archaeological reports and plans. You will work statewide as part of the State Parks archaeology team, supporting projects related to park construction, resource management, historic preservation, and interpretation. This position offers the opportunity to work in a wide variety of settings, from remote wilderness areas to urban parks, and to study sites ranging from pre-contact Hawaiian settlements to historic properties associated with the Hawaiian monarchy. You will also have opportunities to support interpretive and volunteer programs that promote the preservation, appreciation, and understanding of Hawai\u2018i\u2019s cultural and historic resources. The Division of State Parks manages nearly 30,000 acres across five major islands, including approximately 50 state parks, scenic waysides, and historic sites. These properties include culturally and historically significant places such as heiau, traditional Hawaiian habitation sites, cultural landscapes, and historic palaces. This position is ideal for an archaeologist who enjoys fieldwork, working outdoors, exploring a variety of archaeological site types, and contributing to meaningful cultural preservation. The work requires the ability to work independently as well as collaboratively with colleagues, community members, and other partners."
+    },
+    {
+      "title": "Forestry & Wildlife Technician IV",
+      "job_number": "26-0130",
+      "division": "Forestry and Wildlife",
+      "division_source": "title",
+      "location": "Kamuela/Kohala/Waikoloa, Hawaii Island",
+      "yearly_salary": 46800,
+      "yearly_salary_max": 59196,
+      "pay_grade": "SR-13",
+      "posted": "Wed, 14 Oct 2026",
+      "closing": "Thu, 15 Oct 2026 23:59:00:0",
+      "link": "https://www.governmentjobs.com/careers/hawaii/jobs/5274494-0",
+      "duties": "Independently performs a wide variety of complex, specialized technical functions in support of forestry, wildlife and other natural resources research, development, management and maintenance projects; and performs other related duties as as assigned."
+    },
+    {
       "title": "Equipment Operator II",
       "job_number": "26-0323",
       "division": "Division not listed",
@@ -127,20 +155,6 @@
       "duties": "The Abstractor IX serves as head of a document review section in Land Court registration; examines conveyancing instruments and other documents, and issues Certificates of Title and memoranda of encumbrances; and performs other related duties as assigned. A position at this level makes final independent judgment and decisions on the issuance of Certificates of Title and the making of memoranda of encumbrances which are conclusive as to all matters contained therein ."
     },
     {
-      "title": "Forestry & Wildlife Technician IV",
-      "job_number": "26-0130",
-      "division": "Forestry and Wildlife",
-      "division_source": "title",
-      "location": "Kamuela/Kohala/Waikoloa, Hawaii Island",
-      "yearly_salary": 46800,
-      "yearly_salary_max": 59196,
-      "pay_grade": "SR-13",
-      "posted": "Wed, 01 Jul 2026",
-      "closing": "Continuous",
-      "link": "https://www.governmentjobs.com/careers/hawaii/jobs/5274494-0",
-      "duties": "Independently performs a wide variety of complex, specialized technical functions in support of forestry, wildlife and other natural resources research, development, management and maintenance projects; and performs other related duties as as assigned."
-    },
-    {
       "title": "Abstracting Assistant IV",
       "job_number": "25-0380",
       "division": "Bureau of Conveyances",
@@ -169,7 +183,7 @@
       "duties": "These positions perform duties in support of or involved with the examining, determining and evidencing of title to real property or interests therein. The examination of a title involves making an investigation in the offices where the public records are kept, to ascertain the history and present condition of the title to land, and its status with reference to liens, encumbrances, \"clouds,\" etc. This includes the technical process of searching the records; examining all conveyances of whatever kind or nature, which in any manner affect said land, or any estate or interest therein; summarizing (abstracting) the operative portions of these conveyances to record the history of the title; determining ownership and all existing liens and encumbrances, and noting all defects. The evidence of title is any document establishing the title to property. This includes the review of the history and determination of the title, or review of land court documents for registration, prior to the preparation and issuance of one of the following types of evidence: abstracts of title (issued by a licensed abstract maker); Certificates of Title (issued by Assistant Registrars of Land Court); Certificates or chains of Title (issued by a licensed abstract maker). At the IV level, abstracts pertinent information from Land Court Orders, trust deeds, and other legal documents for the preparation of Title Certificates, abstracts or chains of title; assigns and supervises other employees in the preparation of Certificates of Title; keeps other files and records; and performs other related duties as assigned."
     }
   ],
-  "generated_at_utc": "2026-10-14T21:19:13.569725+00:00",
+  "generated_at_utc": "2026-10-15T20:59:22.171868+00:00",
   "rcuh": [
     {
       "title": "CCRT Invasive Species Technician",
@@ -364,5 +378,5 @@
       "duties": "This position involves regular field work in remote and challenging terrain to implement wildfire mitigation and recovery strategies. The overarching aim of this position is to reduce landscape level watershed threats from wildfire within and around the 50,000-acre watershed project area. Manages, plans, implements, coordinates, and facilitates wildland fire prevention and mitigation programs under the guidance of the Mauna Kahalawai Watershed Partnership (MKWP) Program Manager and the MKWP Watershed Management Plan. Works as part of a team to serve the MKWP mission to reverse the negative trend of forest degradation caused by threats such as invasive species, human impacts, and especially..."
     }
   ],
-  "rcuh_generated_at_utc": "2026-10-14T21:19:13.569725+00:00"
+  "rcuh_generated_at_utc": "2026-10-15T20:59:22.171868+00:00"
 }
