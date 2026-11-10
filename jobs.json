@@ -1,6 +1,20 @@
 {
   "civil_service": [
     {
+      "title": "Park Caretaker I",
+      "job_number": "26-0424",
+      "division": "State Parks",
+      "division_source": "title",
+      "location": "Hana, Maui",
+      "yearly_salary": 54408,
+      "yearly_salary_max": 54408,
+      "pay_grade": "BC-02",
+      "posted": "Mon, 09 Nov 2026",
+      "closing": "Continuous",
+      "link": "https://www.governmentjobs.com/careers/hawaii/jobs/5540427-0",
+      "duties": "Cares for, maintains and beautifies an assigned park area, playground or gymnasium; may operate a power mower; and performs other related duties as assigned."
+    },
+    {
       "title": "Equipment Operator II",
       "job_number": "26-0323",
       "division": "Division not listed",
@@ -127,8 +141,24 @@
       "duties": "The Abstractor IX serves as head of a document review section in Land Court registration; examines conveyancing instruments and other documents, and issues Certificates of Title and memoranda of encumbrances; and performs other related duties as assigned. A position at this level makes final independent judgment and decisions on the issuance of Certificates of Title and the making of memoranda of encumbrances which are conclusive as to all matters contained therein ."
     }
   ],
-  "generated_at_utc": "2026-11-08T21:44:06.168299+00:00",
+  "generated_at_utc": "2026-11-10T01:13:29.468419+00:00",
   "rcuh": [
+    {
+      "title": "O'ahu Habitat & Fish Monitoring Assistant Biologist",
+      "job_number": "226713",
+      "project": "SSRI",
+      "division": "Aquatic Resources",
+      "division_source": "posting",
+      "location": "Oahu",
+      "fte": "100.0%",
+      "pay_frequency": "Monthly",
+      "yearly_salary": 54000,
+      "yearly_salary_max": 57600,
+      "posted": "11/09/2026",
+      "closing": "11/22/2026",
+      "link": "https://hr.rcuh.com/psc/hcmprd_exapp/EMPLOYEE/HRMS/c/HRS_HRAM_FL.HRS_CG_SEARCH_FL.GBL?Page=HRS_APP_JBPST_FL&Action=U&FOCUS=Applicant&SiteId=1&JobOpeningId=226713&PostingSeq=1",
+      "duties": "Leads and coordinates the day-to-day work of project staff. Schedules, oversees, and leads the team in conducting underwater fieldwork via SCUBA and/or snorkel to perform benthic surveys. Develops and maintains working relationships with government agencies, NGOs, partners, volunteers, and the community alongside the O'ahu Habitat & Fish Monitoring Biologist. Researches, evaluates, and recommends new protocols for mitigating planned and unplanned coral loss, and restoring reefs and other benthic habitats. Conducts surveys utilizing underwater scientific survey techniques such as uniform point contact benthic surveys, photo quadrats, collection of imagery for photogrammetric 3D modeling, and..."
+    },
     {
       "title": "PCSU Maui Nui Fuels Mitigation Field Crew Leader",
       "job_number": "226697",
@@ -274,5 +304,5 @@
       "duties": "Participates in a wide variety of activities associated with the NNRM and the Division of Forestry and Wildlife (DOFAW) at the Pu'u Wa'awa'a State Forest Reserve (PWW) and Pu'u Anahulu Game Management Area (PGMA). Assists with fencing construction for new and improved conservation units. Conducts feral pig, sheep, and goat control (game drives) and monitoring activities. Assists with ungulate density and abundance surveys using a variety of estimation methods. Walks and/or drives miles of rugged terrain to monitor and repair fences. Travels via helicopter to access field sites when necessary. Conducts alien plant monitoring and control in the project area. Controls alien plants using..."
     }
   ],
-  "rcuh_generated_at_utc": "2026-11-08T21:44:06.168299+00:00"
+  "rcuh_generated_at_utc": "2026-11-10T01:13:29.468419+00:00"
 }
