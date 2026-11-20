@@ -1,6 +1,20 @@
 {
   "civil_service": [
     {
+      "title": "Forestry & Wildlife Worker III",
+      "job_number": "26-0351",
+      "division": "Forestry and Wildlife",
+      "division_source": "title",
+      "location": "Manoa to Kahala, Oahu",
+      "yearly_salary": 64812,
+      "yearly_salary_max": 64812,
+      "pay_grade": "WS-05",
+      "posted": "Fri, 20 Nov 2026",
+      "closing": "Sat, 21 Nov 2026 23:59:00:0",
+      "link": "https://www.governmentjobs.com/careers/hawaii/jobs/5476988-0",
+      "duties": "Supervises and participates in the work of subordinates engaged in the performance of activities in support of the forestry, wildlife and other natural resource management programs; and performs other related duties as assigned."
+    },
+    {
       "title": "Park Caretaker I",
       "job_number": "26-0424",
       "division": "State Parks",
@@ -71,20 +85,6 @@
       "duties": "General Professional IV (Archaeologist): As an Archaeologist, you will conduct archaeological and historical research, perform archaeological surveys and excavations, monitor construction projects, and prepare archaeological reports and plans. You will work statewide as part of the State Parks archaeology team, supporting projects related to park construction, resource management, historic preservation, and interpretation. This position offers the opportunity to work in a wide variety of settings, from remote wilderness areas to urban parks, and to study sites ranging from pre-contact Hawaiian settlements to historic properties associated with the Hawaiian monarchy. You will also have opportunities to support interpretive and volunteer programs that promote the preservation, appreciation, and understanding of Hawai\u2018i\u2019s cultural and historic resources. The Division of State Parks manages nearly 30,000 acres across five major islands, including approximately 50 state parks, scenic waysides, and historic sites. These properties include culturally and historically significant places such as heiau, traditional Hawaiian habitation sites, cultural landscapes, and historic palaces. This position is ideal for an archaeologist who enjoys fieldwork, working outdoors, exploring a variety of archaeological site types, and contributing to meaningful cultural preservation. The work requires the ability to work independently as well as collaboratively with colleagues, community members, and other partners."
     },
     {
-      "title": "Forestry & Wildlife Worker III",
-      "job_number": "26-0351",
-      "division": "Forestry and Wildlife",
-      "division_source": "title",
-      "location": "Manoa to Kahala, Oahu",
-      "yearly_salary": 64812,
-      "yearly_salary_max": 64812,
-      "pay_grade": "WS-05",
-      "posted": "Fri, 11 Sep 2026",
-      "closing": "Continuous",
-      "link": "https://www.governmentjobs.com/careers/hawaii/jobs/5476988-0",
-      "duties": "Supervises and participates in the work of subordinates engaged in the performance of activities in support of the forestry, wildlife and other natural resource management programs; and performs other related duties as assigned."
-    },
-    {
       "title": "Land Agent II and III",
       "job_number": "25-0121",
       "division": "Land Division",
@@ -141,8 +141,40 @@
       "duties": "The Abstractor IX serves as head of a document review section in Land Court registration; examines conveyancing instruments and other documents, and issues Certificates of Title and memoranda of encumbrances; and performs other related duties as assigned. A position at this level makes final independent judgment and decisions on the issuance of Certificates of Title and the making of memoranda of encumbrances which are conclusive as to all matters contained therein ."
     }
   ],
-  "generated_at_utc": "2026-11-14T22:00:36.939281+00:00",
+  "generated_at_utc": "2026-11-20T23:43:03.343775+00:00",
   "rcuh": [
+    {
+      "title": "PCSU Forestry Fire Mitigation Planner",
+      "job_number": "226734",
+      "project": "Pacific Coop Studies Unit",
+      "division": "Forestry and Wildlife",
+      "division_source": "posting",
+      "location": "Maui",
+      "fte": "100.0%",
+      "pay_frequency": "Monthly",
+      "yearly_salary": 54432,
+      "yearly_salary_max": 60984,
+      "posted": "11/17/2026",
+      "closing": "12/01/2026",
+      "link": "https://hr.rcuh.com/psc/hcmprd_exapp/EMPLOYEE/HRMS/c/HRS_HRAM_FL.HRS_CG_SEARCH_FL.GBL?Page=HRS_APP_JBPST_FL&Action=U&FOCUS=Applicant&SiteId=1&JobOpeningId=226734&PostingSeq=1",
+      "duties": "Develops, coordinates, and maintains comprehensive resource management plans and ensures environmental and regulatory compliance for forestry, watershed, wildfire mitigation, conservation, restoration, recreation, and public access projects. Works collaboratively with interdisciplinary staff, regulatory agencies, Native Hawaiian organizations, community stakeholders, and project partners to prepare management plans, environmental documentation, permit applications, and regulatory compliance documents that support natural resource management throughout State Forest Reserves and other managed lands. Duties include, but are not limited to, resource management planning, environmental..."
+    },
+    {
+      "title": "HCSU Quantitative Spatial/Research Analyst (Spatial Conservation Prioritization)",
+      "job_number": "226726",
+      "project": "UHH-HI Coop Studies Unit(HCSU)",
+      "division": "Forestry and Wildlife",
+      "division_source": "posting",
+      "location": "Oahu",
+      "fte": "100.0%",
+      "pay_frequency": "Monthly",
+      "yearly_salary": 62004,
+      "yearly_salary_max": 69996,
+      "posted": "11/16/2026",
+      "closing": "11/30/2026",
+      "link": "https://hr.rcuh.com/psc/hcmprd_exapp/EMPLOYEE/HRMS/c/HRS_HRAM_FL.HRS_CG_SEARCH_FL.GBL?Page=HRS_APP_JBPST_FL&Action=U&FOCUS=Applicant&SiteId=1&JobOpeningId=226726&PostingSeq=1",
+      "duties": "Conducts spatial analysis and modeling for a multi-agency spatial conservation prioritization project on O'ahu. Compiles and validates spatial datasets for O'ahu at-risk plant species (150+) and terrestrial snail species (40+), aggregating occurrence records and habitat data from the State of Hawai'i Division of Forestry and Wildlife (DOFAW), the US Fish and Wildlife Service (USFWS), Department of War installations, and other partner agencies. Develops and refines species distribution models (SDMs) using machine learning and statistical methods. Configures and runs R-based spatial prioritization tools to identify multi-species conservation priority areas under multiple scenarios that..."
+    },
     {
       "title": "Habitat & Fish Monitoring Technician I",
       "job_number": "226715",
@@ -155,7 +187,7 @@
       "yearly_salary": 45320,
       "yearly_salary_max": 45320,
       "posted": "11/10/2026",
-      "closing": "11/17/2026",
+      "closing": "11/24/2026",
       "link": "https://hr.rcuh.com/psc/hcmprd_exapp/EMPLOYEE/HRMS/c/HRS_HRAM_FL.HRS_CG_SEARCH_FL.GBL?Page=HRS_APP_JBPST_FL&Action=U&FOCUS=Applicant&SiteId=1&JobOpeningId=226715&PostingSeq=1",
       "duties": "Conducts underwater fieldwork; performs fish and benthic surveys utilizing self- contained underwater breathing apparatus (SCUBA), underwater scientific survey techniques, such as fish transects, timed fish surveys, digital transecting, photo-quadrat collection, rugosity measurement, sediment collection, utilizes Geographic Information System (GIS) programs and Global Positioning System (GPS), and other established methods. Assists Aquatic Biologist III with computer data entry and archive, photo image analysis, and equipment and boat maintenance. Drives to transport gear and equipment for maintenance and dive surveys. Prepares for fieldwork, gathers and loads data sheets..."
     },
@@ -222,39 +254,7 @@
       "closing": "11/20/2026",
       "link": "https://hr.rcuh.com/psc/hcmprd_exapp/EMPLOYEE/HRMS/c/HRS_HRAM_FL.HRS_CG_SEARCH_FL.GBL?Page=HRS_APP_JBPST_FL&Action=U&FOCUS=Applicant&SiteId=1&JobOpeningId=226674&PostingSeq=1",
       "duties": "Plans, coordinates, implements, and assists with rangeland management, wildfire mitigation, and watershed protection components of the PCSU Maui Nui Fire Management Project. Assists with directing and managing field crew with minimal supervision, performing various resource management and monitoring activities. Duties include, but are not limited to, collection and analysis of technical field data using standardized methods to assess vegetation consumption, fuel loading, soil stability, and distribution of native and non-native plant species within and around designated management units. Implements rangeland and fuels management actions, including invasive plant control using chemical and..."
-    },
-    {
-      "title": "HCRI Aquatic Resources Contracts Associate",
-      "job_number": "226639",
-      "project": "SSRI",
-      "division": "Aquatic Resources",
-      "division_source": "posting",
-      "location": "Oahu",
-      "fte": "100.0%",
-      "pay_frequency": "Monthly",
-      "yearly_salary": 54600,
-      "yearly_salary_max": 54600,
-      "posted": "10/15/2026",
-      "closing": "11/15/2026",
-      "link": "https://hr.rcuh.com/psc/hcmprd_exapp/EMPLOYEE/HRMS/c/HRS_HRAM_FL.HRS_CG_SEARCH_FL.GBL?Page=HRS_APP_JBPST_FL&Action=U&FOCUS=Applicant&SiteId=1&JobOpeningId=226639&PostingSeq=1",
-      "duties": "Assists with preparing, organizing, and routing contract and grant documents for required approvals. Helps develop and assemble contracts and supporting materials (e.g., draft budgets, Scopes of Work, deliverables). Tracks contracts, subawards, and grant timelines and deliverables. Maintains shared calendars and reminder systems. Monitors award conditions, contractor performance, progress reports, No Cost Extensions, etc. Assists in developing DAR fiscal recordkeeping procedures and updating fiscal tracking tools. Supports the preparation and processing of budget justifications, expenditure documentation, appropriations, cost allocations, and payment schedules. Assists with tracking grant..."
-    },
-    {
-      "title": "PCSU Forestry Field Crew Leader",
-      "job_number": "226625",
-      "project": "Pacific Coop Studies Unit",
-      "division": "Forestry and Wildlife",
-      "division_source": "posting",
-      "location": "Maui",
-      "fte": "100.0%",
-      "pay_frequency": "Monthly",
-      "yearly_salary": 50640,
-      "yearly_salary_max": 50640,
-      "posted": "10/09/2026",
-      "closing": "11/20/2026",
-      "link": "https://hr.rcuh.com/psc/hcmprd_exapp/EMPLOYEE/HRMS/c/HRS_HRAM_FL.HRS_CG_SEARCH_FL.GBL?Page=HRS_APP_JBPST_FL&Action=U&FOCUS=Applicant&SiteId=1&JobOpeningId=226625&PostingSeq=1",
-      "duties": "Supervises, assigns work to Pacific Cooperative Studies Unit (PCSU) Forestry Program and works alongside of field personnel involved in fuels mitigation and vegetation management, building and maintaining fence lines, controlling alien plant invasions, restoring native vegetation, monitoring the native ecosystem and controlling feral animals. Oversees temporary staff, interns, and volunteers, in the field, in carrying out resource management efforts. Utilizes good judgement in reviewing and approving time reporting; assessing performance of direct reports by evaluating work quality and performance of specified job duties (e.g., conduct performance evaluations of direct reports). Develops..."
     }
   ],
-  "rcuh_generated_at_utc": "2026-11-14T22:00:36.939281+00:00"
+  "rcuh_generated_at_utc": "2026-11-20T23:43:03.343775+00:00"
 }
