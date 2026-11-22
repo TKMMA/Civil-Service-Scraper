@@ -1,20 +1,6 @@
 {
   "civil_service": [
     {
-      "title": "Forestry & Wildlife Worker III",
-      "job_number": "26-0351",
-      "division": "Forestry and Wildlife",
-      "division_source": "title",
-      "location": "Manoa to Kahala, Oahu",
-      "yearly_salary": 64812,
-      "yearly_salary_max": 64812,
-      "pay_grade": "WS-05",
-      "posted": "Fri, 20 Nov 2026",
-      "closing": "Sat, 21 Nov 2026 23:59:00:0",
-      "link": "https://www.governmentjobs.com/careers/hawaii/jobs/5476988-0",
-      "duties": "Supervises and participates in the work of subordinates engaged in the performance of activities in support of the forestry, wildlife and other natural resource management programs; and performs other related duties as assigned."
-    },
-    {
       "title": "Park Caretaker I",
       "job_number": "26-0424",
       "division": "State Parks",
@@ -141,7 +127,7 @@
       "duties": "The Abstractor IX serves as head of a document review section in Land Court registration; examines conveyancing instruments and other documents, and issues Certificates of Title and memoranda of encumbrances; and performs other related duties as assigned. A position at this level makes final independent judgment and decisions on the issuance of Certificates of Title and the making of memoranda of encumbrances which are conclusive as to all matters contained therein ."
     }
   ],
-  "generated_at_utc": "2026-11-20T23:43:03.343775+00:00",
+  "generated_at_utc": "2026-11-22T23:17:12.279595+00:00",
   "rcuh": [
     {
       "title": "PCSU Forestry Fire Mitigation Planner",
@@ -251,10 +237,74 @@
       "yearly_salary": 52512,
       "yearly_salary_max": 60991,
       "posted": "10/23/2026",
-      "closing": "11/20/2026",
+      "closing": "12/04/2026",
       "link": "https://hr.rcuh.com/psc/hcmprd_exapp/EMPLOYEE/HRMS/c/HRS_HRAM_FL.HRS_CG_SEARCH_FL.GBL?Page=HRS_APP_JBPST_FL&Action=U&FOCUS=Applicant&SiteId=1&JobOpeningId=226674&PostingSeq=1",
       "duties": "Plans, coordinates, implements, and assists with rangeland management, wildfire mitigation, and watershed protection components of the PCSU Maui Nui Fire Management Project. Assists with directing and managing field crew with minimal supervision, performing various resource management and monitoring activities. Duties include, but are not limited to, collection and analysis of technical field data using standardized methods to assess vegetation consumption, fuel loading, soil stability, and distribution of native and non-native plant species within and around designated management units. Implements rangeland and fuels management actions, including invasive plant control using chemical and..."
+    },
+    {
+      "title": "PCSU Forestry Field Crew Leader",
+      "job_number": "226625",
+      "project": "Pacific Coop Studies Unit",
+      "division": "Forestry and Wildlife",
+      "division_source": "posting",
+      "location": "Maui",
+      "fte": "100.0%",
+      "pay_frequency": "Monthly",
+      "yearly_salary": 50640,
+      "yearly_salary_max": 50640,
+      "posted": "10/09/2026",
+      "closing": "12/04/2026",
+      "link": "https://hr.rcuh.com/psc/hcmprd_exapp/EMPLOYEE/HRMS/c/HRS_HRAM_FL.HRS_CG_SEARCH_FL.GBL?Page=HRS_APP_JBPST_FL&Action=U&FOCUS=Applicant&SiteId=1&JobOpeningId=226625&PostingSeq=1",
+      "duties": "Supervises, assigns work to Pacific Cooperative Studies Unit (PCSU) Forestry Program and works alongside of field personnel involved in fuels mitigation and vegetation management, building and maintaining fence lines, controlling alien plant invasions, restoring native vegetation, monitoring the native ecosystem and controlling feral animals. Oversees temporary staff, interns, and volunteers, in the field, in carrying out resource management efforts. Utilizes good judgement in reviewing and approving time reporting; assessing performance of direct reports by evaluating work quality and performance of specified job duties (e.g., conduct performance evaluations of direct reports). Develops..."
+    },
+    {
+      "title": "PCSU Forestry Field Project Assistant (Landscape Conservation)",
+      "job_number": "226591",
+      "project": "Pacific Coop Studies Unit",
+      "division": "Forestry and Wildlife",
+      "division_source": "posting",
+      "location": "Maui",
+      "fte": "100.0%",
+      "pay_frequency": "Monthly",
+      "yearly_salary": 43848,
+      "yearly_salary_max": 43848,
+      "posted": "09/28/2026",
+      "closing": "11/30/2026",
+      "link": "https://hr.rcuh.com/psc/hcmprd_exapp/EMPLOYEE/HRMS/c/HRS_HRAM_FL.HRS_CG_SEARCH_FL.GBL?Page=HRS_APP_JBPST_FL&Action=U&FOCUS=Applicant&SiteId=1&JobOpeningId=226591&PostingSeq=1",
+      "duties": "Assists with building, inspecting, and maintaining fences. Monitors and controls alien plants, feral pigs, axis deer, feral goats and predators at the within and around each designated management area of interest (MOI) or exclosure. Conducts ungulate (e.g., feral pigs, feral and mouflon sheep, and other ungulates as necessary) control and monitoring activities in designated MOIs or exclosures, Maui Nui DOFAW managed lands and watershed partnership lands. Deploys game cameras and bait stations to facilitate ungulate and small predator capture. Inputs data into GPS equipment and computer database. Conducts alien and native plant monitoring and invasive plant control. Controls alien plants..."
+    },
+    {
+      "title": "Napu'u NRM Field Assistant I",
+      "job_number": "226546",
+      "project": "Pacific Coop Studies Unit",
+      "division": "Forestry and Wildlife",
+      "division_source": "posting",
+      "location": "Hawaii",
+      "fte": "100.0%",
+      "pay_frequency": "Monthly",
+      "yearly_salary": 40800,
+      "yearly_salary_max": 40800,
+      "posted": "09/03/2026",
+      "closing": "11/27/2026",
+      "link": "https://hr.rcuh.com/psc/hcmprd_exapp/EMPLOYEE/HRMS/c/HRS_HRAM_FL.HRS_CG_SEARCH_FL.GBL?Page=HRS_APP_JBPST_FL&Action=U&FOCUS=Applicant&SiteId=1&JobOpeningId=226546&PostingSeq=1",
+      "duties": "Participates in a wide variety of activities associated with the NNRM and the Division of Forestry and Wildlife (DOFAW) at the Pu'u Wa'awa'a State Forest Reserve (PWW) and Pu'u Anahulu Game Management Area (PGMA). Assists with fencing construction for new and improved conservation units. Conducts feral pig, sheep, and goat control (game drives) and monitoring activities. Assists with ungulate density and abundance surveys using a variety of estimation methods. Walks and/or drives miles of rugged terrain to monitor and repair fences. Travels via helicopter to access field sites when necessary. Conducts alien plant monitoring and control in the project area. Controls alien plants using..."
+    },
+    {
+      "title": "Napu'u NRM Field Assistant II",
+      "job_number": "226547",
+      "project": "Pacific Coop Studies Unit",
+      "division": "Forestry and Wildlife",
+      "division_source": "posting",
+      "location": "Hawaii",
+      "fte": "100.0%",
+      "pay_frequency": "Monthly",
+      "yearly_salary": 42300,
+      "yearly_salary_max": 42300,
+      "posted": "09/03/2026",
+      "closing": "11/27/2026",
+      "link": "https://hr.rcuh.com/psc/hcmprd_exapp/EMPLOYEE/HRMS/c/HRS_HRAM_FL.HRS_CG_SEARCH_FL.GBL?Page=HRS_APP_JBPST_FL&Action=U&FOCUS=Applicant&SiteId=1&JobOpeningId=226547&PostingSeq=1",
+      "duties": "Participates in a wide variety of activities associated with the NNRM and the Division of Forestry and Wildlife (DOFAW) at the Pu'u Wa'awa'a State Forest Reserve (PWW) and Pu'u Anahulu Game Management Area (PGMA). Assists with fencing construction for new and improved conservation units. Conducts feral pig, sheep, and goat control (game drives) and monitoring activities. Assists with ungulate density and abundance surveys using a variety of estimation methods. Walks and/or drives miles of rugged terrain to monitor and repair fences. Travels via helicopter to access field sites when necessary. Conducts alien plant monitoring and control in the project area. Controls alien plants using..."
     }
   ],
-  "rcuh_generated_at_utc": "2026-11-20T23:43:03.343775+00:00"
+  "rcuh_generated_at_utc": "2026-11-22T23:17:12.279595+00:00"
 }
