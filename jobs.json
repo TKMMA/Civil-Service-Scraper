@@ -127,7 +127,7 @@
       "duties": "The Abstractor IX serves as head of a document review section in Land Court registration; examines conveyancing instruments and other documents, and issues Certificates of Title and memoranda of encumbrances; and performs other related duties as assigned. A position at this level makes final independent judgment and decisions on the issuance of Certificates of Title and the making of memoranda of encumbrances which are conclusive as to all matters contained therein ."
     }
   ],
-  "generated_at_utc": "2026-11-25T01:56:59.092331+00:00",
+  "generated_at_utc": "2026-11-28T01:10:42.155846+00:00",
   "rcuh": [
     {
       "title": "OISC Field Supervisor",
@@ -178,22 +178,6 @@
       "duties": "Conducts spatial analysis and modeling for a multi-agency spatial conservation prioritization project on O'ahu. Compiles and validates spatial datasets for O'ahu at-risk plant species (150+) and terrestrial snail species (40+), aggregating occurrence records and habitat data from the State of Hawai'i Division of Forestry and Wildlife (DOFAW), the US Fish and Wildlife Service (USFWS), Department of War installations, and other partner agencies. Develops and refines species distribution models (SDMs) using machine learning and statistical methods. Configures and runs R-based spatial prioritization tools to identify multi-species conservation priority areas under multiple scenarios that..."
     },
     {
-      "title": "Habitat & Fish Monitoring Technician I",
-      "job_number": "226715",
-      "project": "Direct-DLNR-Aquatic Resources",
-      "division": "Aquatic Resources",
-      "division_source": "posting",
-      "location": "Kauai",
-      "fte": "100.0%",
-      "pay_frequency": "Monthly",
-      "yearly_salary": 45320,
-      "yearly_salary_max": 45320,
-      "posted": "11/10/2026",
-      "closing": "11/24/2026",
-      "link": "https://hr.rcuh.com/psc/hcmprd_exapp/EMPLOYEE/HRMS/c/HRS_HRAM_FL.HRS_CG_SEARCH_FL.GBL?Page=HRS_APP_JBPST_FL&Action=U&FOCUS=Applicant&SiteId=1&JobOpeningId=226715&PostingSeq=1",
-      "duties": "Conducts underwater fieldwork; performs fish and benthic surveys utilizing self- contained underwater breathing apparatus (SCUBA), underwater scientific survey techniques, such as fish transects, timed fish surveys, digital transecting, photo-quadrat collection, rugosity measurement, sediment collection, utilizes Geographic Information System (GIS) programs and Global Positioning System (GPS), and other established methods. Assists Aquatic Biologist III with computer data entry and archive, photo image analysis, and equipment and boat maintenance. Drives to transport gear and equipment for maintenance and dive surveys. Prepares for fieldwork, gathers and loads data sheets..."
-    },
-    {
       "title": "PCSU Maui Nui Fuels Mitigation Field Project Assistant",
       "job_number": "226698",
       "project": "Pacific Coop Studies Unit",
@@ -205,7 +189,7 @@
       "yearly_salary": 43848,
       "yearly_salary_max": 43848,
       "posted": "10/30/2026",
-      "closing": "11/27/2026",
+      "closing": "01/10/2027",
       "link": "https://hr.rcuh.com/psc/hcmprd_exapp/EMPLOYEE/HRMS/c/HRS_HRAM_FL.HRS_CG_SEARCH_FL.GBL?Page=HRS_APP_JBPST_FL&Action=U&FOCUS=Applicant&SiteId=1&JobOpeningId=226698&PostingSeq=1",
       "duties": "Assists with fuels reduction, removal and vegetation management throughout Maui Nui. Assists with building, inspecting, and maintaining fences. Monitors and controls alien species in DOFAW managed areas and partnership lands. Conducts monitoring and maintenance activities on weather stations, grazing breaks, and irrigation infrastructure. Inputs data into GPS equipment and computer database. Conducts alien and native plant monitoring and invasive plant control. Controls alien plants using mechanical and chemical/biological techniques. Performs assigned duties related to habitat protection, including site preparation, planting and seed collection. Participates in public outreach activities..."
     },
@@ -221,7 +205,7 @@
       "yearly_salary": 60991,
       "yearly_salary_max": 63438,
       "posted": "10/26/2026",
-      "closing": "11/30/2026",
+      "closing": "12/07/2026",
       "link": "https://hr.rcuh.com/psc/hcmprd_exapp/EMPLOYEE/HRMS/c/HRS_HRAM_FL.HRS_CG_SEARCH_FL.GBL?Page=HRS_APP_JBPST_FL&Action=U&FOCUS=Applicant&SiteId=1&JobOpeningId=226680&PostingSeq=1",
       "duties": "Coordinates, develops, implements, and maintains the Cultural Resource Inventory and Information Management Program for the Maui Nui Forest Management Section. Provides technical assistance in documenting, organizing, protecting, and managing cultural resource information to support sustainable forest management across the State Forest Reserves of Maui, Molokai, and Lanai. Works collaboratively with forestry staff, environmental and regulatory compliance planners, local community organizations, lineal descendants, cultural practitioners, consulting archaeologists, regulatory agencies, universities, partner organizations, and community advisory groups to ensure that cultural resource..."
     },
@@ -256,7 +240,23 @@
       "closing": "12/04/2026",
       "link": "https://hr.rcuh.com/psc/hcmprd_exapp/EMPLOYEE/HRMS/c/HRS_HRAM_FL.HRS_CG_SEARCH_FL.GBL?Page=HRS_APP_JBPST_FL&Action=U&FOCUS=Applicant&SiteId=1&JobOpeningId=226625&PostingSeq=1",
       "duties": "Supervises, assigns work to Pacific Cooperative Studies Unit (PCSU) Forestry Program and works alongside of field personnel involved in fuels mitigation and vegetation management, building and maintaining fence lines, controlling alien plant invasions, restoring native vegetation, monitoring the native ecosystem and controlling feral animals. Oversees temporary staff, interns, and volunteers, in the field, in carrying out resource management efforts. Utilizes good judgement in reviewing and approving time reporting; assessing performance of direct reports by evaluating work quality and performance of specified job duties (e.g., conduct performance evaluations of direct reports). Develops..."
+    },
+    {
+      "title": "PCSU Forestry Field Project Assistant (Landscape Conservation)",
+      "job_number": "226591",
+      "project": "Pacific Coop Studies Unit",
+      "division": "Forestry and Wildlife",
+      "division_source": "posting",
+      "location": "Maui",
+      "fte": "100.0%",
+      "pay_frequency": "Monthly",
+      "yearly_salary": 43848,
+      "yearly_salary_max": 43848,
+      "posted": "09/28/2026",
+      "closing": "12/14/2026",
+      "link": "https://hr.rcuh.com/psc/hcmprd_exapp/EMPLOYEE/HRMS/c/HRS_HRAM_FL.HRS_CG_SEARCH_FL.GBL?Page=HRS_APP_JBPST_FL&Action=U&FOCUS=Applicant&SiteId=1&JobOpeningId=226591&PostingSeq=1",
+      "duties": "Assists with building, inspecting, and maintaining fences. Monitors and controls alien plants, feral pigs, axis deer, feral goats and predators at the within and around each designated management area of interest (MOI) or exclosure. Conducts ungulate (e.g., feral pigs, feral and mouflon sheep, and other ungulates as necessary) control and monitoring activities in designated MOIs or exclosures, Maui Nui DOFAW managed lands and watershed partnership lands. Deploys game cameras and bait stations to facilitate ungulate and small predator capture. Inputs data into GPS equipment and computer database. Conducts alien and native plant monitoring and invasive plant control. Controls alien plants..."
     }
   ],
-  "rcuh_generated_at_utc": "2026-11-25T01:56:59.092331+00:00"
+  "rcuh_generated_at_utc": "2026-11-28T01:10:42.155846+00:00"
 }
